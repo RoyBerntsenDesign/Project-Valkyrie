@@ -17,5 +17,5 @@ Features we are looking for are:
 - Using blind joints on all of the frame
 - Rigid frame, good and as low as possible center of gravity
 - Seperate AC and DC systems
-- 
-![Valkyrie 0 02](https://user-images.githubusercontent.com/32734385/135338352-1060942b-f6f7-4fab-8b29-8ec3e321779a.png)
+
+![Valkyrie 0 17](https://user-images.githubusercontent.com/32734385/141646960-fe8f1089-9d93-4dff-875b-1852d92bf4d1.png)
