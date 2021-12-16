@@ -1,0 +1,23 @@
+G91                                  ; relative positioning
+G1 Z10 F6000 S2                      ; lift Z relative to current position
+G1 S1 X480 Y475 F9000                ; move quickly to X and Y axis endstops and stop there (first pass)
+G1 X-5 Y-5 F6000                     ; go back a few mm
+G1 S1 X480 Y475 F360                 ; move slowly to X and Y axis endstops once more (second pass)
+M400                                                   ; make sure everything has stopped before we make changes
+M915 P2:5:6 S-30 F0 H250 R0                            ; Configure Z-Axis Stall Detection
+M584 X0 Y1:7 Z2 U5 V6 E3 P5                            ; Separate Z-Axis Lead screws and drive independently
+M913 Z50 U50 V50                                       ; Lower motor current by 50%
+M574 Z1 U1 V1 S3                                       ; Configure Z-Axis stall detection homing
+G91                                                    ; relative positioning
+G1 S1 Z-650 U-650 V-650 F500                           ; Home Z-Axis actuators independently
+M400                                                   ; make sure everything has stopped before we make changes
+M913 Z100 U100 V100                                    ; Reset motor current
+M584 X0 Y1:7 Z2:5:6 U5 V6 E3 P3                        ; Reset drive mapping
+M574 Z1 S2                                             ; Reset Z-Axis to be controlled by probe
+G90                                  ; absolute positioning
+G1 Z10 F6000 S2                      ; lift Z relative to current position
+G1 X220 Y197.5 F9000                 ; go to first bed probe point
+M558 F400                            ; adjust first probe speed
+G30                                  ; home Z by probing the bed
+M558 F120                            ; reset probe speed
+G30                                  ; home Z by probing the bed

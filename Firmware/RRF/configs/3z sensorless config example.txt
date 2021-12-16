@@ -1,0 +1,34 @@
+; Drives
+M569 P0 S0                                           ; X drive goes backwards
+M569 P1 S0                                           ; Y1 drive goes backwards
+M569 P2 S0                                           ; Z1 drive goes backwards
+M569 P3 S1                                           ; E0 drive goes forwards
+M569 P5 S0                                           ; Z2 drive goes backwards
+M569 P6 S0                                           ; Z3 drive goes backwards
+M569 P7 S1                                           ; Y2 drive goes forwards
+
+M584 X0 Y1:7 Z2:5:6 U5 V6 E3 P3                      ; Apply custom drive mapping, U is a dummy Axis and P3 is setting the number of visible axes
+M671 X222:-10:520 Y581:25:25 S10.0                   ; leadscrews at rear middle, front left and rear right
+
+M350 X16 Y16 Z16 U16 V16 E16 I1                                 ; Configure microstepping with interpolation
+M92 X160 Y80 Z320.00 U320.00 V320.00 E946.00                    ; Set steps per mm
+M566 X900.00 Y900.00 Z12.00 U12.00 V12.00 E120.00               ; Set maximum instantaneous speed changes (mm/min)
+M203 X10000.00 Y10000.00 Z400.00 U400.00 V400.00 E1200.00       ; Set maximum speeds (mm/min)
+M201 X1000.00 Y1000.00 Z20.00 U20.00 V20.00 E250.00             ; Set accelerations (mm/s^2)
+M906 X1000.00 Y1500.00 Z1500.00 U1500.00 V1500.00 E1200.00 I100 ; Set motor currents (mA) and motor idle factor in per cent
+
+M84 S0                                                          ; Set idle timeout (0 is disable a time out, always on ) 
+
+; Axis Limits
+M208 X0 Y0 Z-0.5 U-0.5 U-0.5 S1                      ; Set axis minima
+M208 X470 Y465 Z650 U650 V650 S0                     ; Set axis maxima
+
+; Endstops
+M574 X2 Y2 S1                                        ; Set active high endstops
+
+; Z-Probe
+M574 Z1 S2                                           ; Set endstops controlled by probe
+M307 H3 A-1 C-1 D-1                                  ; Disable heater on PWM channel for BLTouch
+M558 P9 H5 F120 T9000 X0 Y0 Z1                       ; Set Z probe type to bltouch and the dive height + speeds
+G31 P500 X25.4 Y0.2 Z0.847                           ; Set Z probe trigger value, offset and trigger height
+M557 X25.4:435 Y10.2:440 P5                          ; Define mesh grid

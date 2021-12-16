@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -58,7 +58,9 @@
      inkscape:current-layer="svg815" />
   <g
      id="g4630"
-     transform="translate(-1392.1319,232.79)">
+     transform="translate(-1392.1319,232.79)"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <g
        transform="matrix(1.6147199,-0.2663771,0.29406524,1.4626836,-814.18423,-417.18643)"
        id="g4563">
