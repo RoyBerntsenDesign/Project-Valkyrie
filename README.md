@@ -18,4 +18,4 @@ Features we are looking for are:
 - Rigid frame, good and as low as possible center of gravity
 - Seperate AC and DC systems
 
-![Valkyrie 0 17](https://user-images.githubusercontent.com/32734385/141646960-fe8f1089-9d93-4dff-875b-1852d92bf4d1.png)
+![Valkyrie 0 38 02](https://user-images.githubusercontent.com/32734385/147287779-06d5bb89-ea98-46fa-b131-880e035769e4.png)
