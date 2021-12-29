@@ -41,6 +41,13 @@ M574 X1 S1 P"io0.in"                         ; configure switch-type (e.g. micro
 M574 Y1 S1 P"io1.in"                         ; configure switch-type (e.g. microswitch) endstop for low end on Y via pin io1.in
 M574 Z2 S3                                   ; configure sensorless endstop for high end on Z
 
+; 3Z
+M671 X-10:155:320 Y-10:320:-10 S25 				; leadscrews at front left, rear middle and front right
+
+; Sensorless config
+M915 P0:1 S3 F0 R0
+M915 P5:6:7 S4 F0 R0
+
 ; Z-Probe
 M558 P1 C"io3.in" H5 F120 T6000              ; set Z probe type to unmodulated and the dive height + speeds
 G31 P500 X0 Y0 Z2.5                          ; set Z probe trigger value, offset and trigger height
