@@ -9,4 +9,4 @@ G1 H1 Z350                           ; Home Z-Axis actuators independently
 M400                                                   ; make sure everything has stopped before we make changes
 M913 Z100                                    ; Reset motor current
 G90                                  ; absolute positioning
-G92 Z290
+G92 Z300
