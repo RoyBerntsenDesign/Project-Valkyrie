@@ -6,7 +6,7 @@ A DIY High-Temp 3D Printer project designed by professionals to be a premium DIY
 ## Valkyrie Main Features
 ### Advanced Kinematics with independent triple Z axis
 - Fully automated bed leveling
-- Inverted CoreXY for minimal resistance when moving
+- Inverted CoreXY for minimal friction
 - XUV Triple Z True Bed Leveling with Maxwell Coupling Criteria
 - Stall-detection homing on all 2+3 – XY+ZUV axis
 - Light tool-head riding on carbon X with MGN9h
