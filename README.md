@@ -1,21 +1,46 @@
 # Project-Valkyrie
-Premium Quality CoreXY 3D Printer by Roy Berntsen
+A DIY High-Temp 3D Printer project designed by professionals to be a premium DIY FFF/FDM 3d printer
+- https://vkingprinter.com/project-valkyrie/ 
+- https://discord.gg/C77tsY5
 
-Features we are looking for are:
-- Heated Chamber
-- Heated Drybox for the filament
-- True bed tramming using the Maxvell Coupling Criteria for lifting the bed
-- Watercooling is on the wish list or might be optional
-- Design parts to print but also looking for all metal option
-- Carbon rail for X axis with MGN9 for lightweight Y movment
-- Motors in a cool area
-- Belted Z drive for no wobble issue
-- High temp belts 9mm gates 2GT on all axis. Easy belt tension system on all axis
+## Valkyrie Main Features
+### Advanced Kinematics with independent triple Z axis
+- Fully automated bed leveling
+- Inverted CoreXY for minimal friction
+- XUV Triple Z True Bed Leveling with Maxwell Coupling Criteria
+- Stall-detection homing on all 2+3 – XY+ZUV axis
+- Light tool-head riding on carbon X with MGN9h
+- ABZUV stepper motors all located in the cold zone
+### Temperature Controlled Heated Chamber <80C
+- Engineered insulation options for high level of safety and minimal thermal loss
+- High end ACM Outer Paneling
+- Double glazed window for inside viewing and good insulation
+### Integrated Temperature Controlled Heated Dry-box
+- Filament weight control by load-cell
+- Dry-box temp control <70C
+- Dry-box humidity sensor
+### Advanced Firmware add-ons
+- Chamber temp controls and display
+- Dry-box temp control and display
+- Dry-box humidity display
+- Filament weight display
+- Extruder motor temp sensor and display
+### Water-cooled hotend
+- Option to water-cool extruder stepper motor
+### Other features
+- High temp belts 9mm gates 2GT on all axis
+- Easy access belt tension system on all axis
 - Having high quality motors, idlers and other key components
-- Good controller with 6+ drivers and wifi
-- 7 in Touch screen as optional
-- Using blind joints on all of the frame
-- Rigid frame, good and as low as possible center of gravity
+- Solid frame with low center of gravity
 - Seperate AC and DC systems
 
-![Valkyrie 0 38 02](https://user-images.githubusercontent.com/32734385/147287779-06d5bb89-ea98-46fa-b131-880e035769e4.png)
+### Development Team
+* Roy Berntsen - Lead Engineering Designer
+* Mark Bridgewater - Mechatronics Design and Electronics
+* Chris Lombardi - Design, Firmware and Advanced features
+
+Join our discord server to get in touch
+
+![Valkyrie 75](https://user-images.githubusercontent.com/32734385/166158643-f241f537-9bda-4cd7-b5bd-3799c71041e2.png)
+![Valkyrie 0 63](https://user-images.githubusercontent.com/32734385/166158650-84115656-dc59-40bb-aad4-b805aede8828.png)
+
