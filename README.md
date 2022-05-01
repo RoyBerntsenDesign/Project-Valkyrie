@@ -3,6 +3,11 @@ A DIY High-Temp 3D Printer project designed by professionals to be a premium DIY
 - https://vkingprinter.com/project-valkyrie/ 
 - https://discord.gg/C77tsY5
 
+## Specifications for Designed Size
+- Frame footprint - 500X520X750
+- Print volume - 310X310X300
+- Weight ~45Kg
+
 ## Valkyrie Main Features
 ### Advanced Kinematics with independent triple Z axis
 - Fully automated bed leveling
@@ -30,7 +35,7 @@ A DIY High-Temp 3D Printer project designed by professionals to be a premium DIY
 ### Other features
 - High temp belts 9mm gates 2GT on all axis
 - Easy access belt tension system on all axis
-- Having high quality motors, idlers and other key components
+- Using high quality key components
 - Solid frame with low center of gravity
 - Seperate AC and DC systems
 
