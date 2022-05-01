@@ -1,5 +1,5 @@
 # Project-Valkyrie
-A DIY High-Temp 3D Printer designed by professionals to be a premium DIY FFF/FDM 3d printer
+A DIY High-Temp 3D Printer project designed by professionals to be a premium DIY FFF/FDM 3d printer
 - https://vkingprinter.com/project-valkyrie/ 
 - https://discord.gg/C77tsY5
 
