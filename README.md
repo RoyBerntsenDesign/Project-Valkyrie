@@ -3,10 +3,11 @@ A DIY High-Temp 3D Printer project designed by professionals to be a premium DIY
 - https://vkingprinter.com/project-valkyrie/ 
 - https://discord.gg/C77tsY5
 
-## Specifications for Designed Size
+## Specifications for Designed Size (Scaleable)
 - Frame footprint - 500X520X750
 - Print volume - 310X310X300
 - Weight ~45Kg
+- Option to print high temp materials 300+
 
 ## Valkyrie Main Features
 ### Advanced Kinematics with independent triple Z axis
