@@ -48,6 +48,5 @@ A DIY High-Temp 3D Printer project designed by professionals to be a premium DIY
 
 Join our discord server to get in touch
 
-![Valkyrie 75](https://user-images.githubusercontent.com/32734385/166158643-f241f537-9bda-4cd7-b5bd-3799c71041e2.png)
-![Valkyrie 0 63](https://user-images.githubusercontent.com/32734385/166158650-84115656-dc59-40bb-aad4-b805aede8828.png)
-
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.  
+![Valkyrie 102](https://user-images.githubusercontent.com/32734385/181021111-5db64437-4c8f-4497-a819-4f9a3a521fa6.png)
