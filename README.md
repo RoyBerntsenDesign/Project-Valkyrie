@@ -8,36 +8,31 @@ A DIY High-Temp 3D Printer project designed by professionals to be a premium DIY
 - Frame footprint - 500X520X750
 - Print volume - 310X310X300
 - Weight ~45Kg
-- Option to print high temp materials 300+
-
+- Option to print high temp materials up to 450C nozzle temp
 ## Valkyrie Main Features
 ### Advanced Kinematics with independent triple Z axis
-- Fully automated bed leveling
-- Inverted CoreXY for minimal friction
-- XUV Triple Z True Bed Leveling with Maxwell Coupling Criteria
-- Stall-detection homing on all 2+3 – XY+ZUV axis
-- Light tool-head riding on carbon X with MGN9h
-- ABZUV stepper motors all located in the cold zone
-### Temperature Controlled Heated Chamber <80C
+- Fully automated bed leveling with triple independent Z using true bed leveling with a Maxwell coupling lifting the bed
+- Inverted CoreXY allows for only 2 toothed idlers in the AB system VS 6 on the standard kinematics
+- Easy access and simple belt tension on all 5 belts
+- Stall-detection homing on all 2+3 XY+3Z axis
+- Light tool-head riding on MGN 9 and carbon X-axis
+- All A, B and Z stepper motors all located outside the heated chamber
+### Heated Chamber up to 80C
 - Engineered insulation options for high level of safety and minimal thermal loss
 - High end ACM Outer Paneling
 - Double glazed window for inside viewing and good insulation
-### Integrated Temperature Controlled Heated Dry-box
+### Integrated Heated Dry-box
 - Filament weight control by load-cell
-- Dry-box temp control <70C
+- Dry-box temp control up to 70C
 - Dry-box humidity sensor
 ### Advanced Firmware add-ons
 - Chamber temp controls and display
 - Dry-box temp control and display
 - Dry-box humidity display
 - Filament weight display
-- Extruder motor temp sensor and display
-### Water-cooled hotend
-- Option to water-cool extruder stepper motor
 ### Other features
 - High temp belts 9mm gates 2GT on all axis
-- Easy access belt tension system on all axis
-- Using high quality key components
+- High quality idlers and other key components
 - Solid frame with low center of gravity
 - Seperate AC and DC systems
 
