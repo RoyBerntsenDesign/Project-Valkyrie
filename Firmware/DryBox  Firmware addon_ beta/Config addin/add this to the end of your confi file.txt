@@ -1,0 +1,10 @@
+
+;Global varibles Drybox
+global preSpoolWeight = 0
+global emptySpoolWeight = 0
+global totalWeight= 0
+global filamentWeight =0
+global dryBoxTC = 0
+global dryBoxRH = 0
+global calWeight =0 
+global instructions = "No Message"
