@@ -3,6 +3,7 @@ html {
     font-family: Roboto, Arial, Helvetica, Sans-Serif; 
     color: #FFFFFFB3; 
 }
+
 a:link{
   color: #FFFFFFB3;
 }
@@ -48,7 +49,6 @@ li {
 	  font-family: Arial,Helvetica,sans-serif;
 	  margin-top: 50px;
 	  margin-left: 100px;
-	  /* width of picture */
 	  max-width: 902px;
 	}
   div#main {
@@ -60,21 +60,14 @@ li {
   }
 	nav {
     background-color: #424242;
-    /* border-width: 1px;	 */
     display: flex;
     flex-direction: column;
     align-items: stretch;
-		/* position: absolute; */
-		/* left: 100px;*/
-		/* border: 1px solid black; */
 		text-align: center; 
     margin: 5px
 	}
 	div#info {
-		/* left: 300px; */
-	  /* border-width: 1px; */
 		padding: 0px;
-		/* border: 1px solid black; */
     position: absolute;
 	}
   div#onecol {
@@ -85,14 +78,12 @@ li {
   }
 	div#leftcol {
      background-color: #424242;
-	   /* float:left; */
 	   width: 50%;
 	   padding: 20px;
 	   margin: 5px;
 	}
 	div#rightcol {
      background-color: #424242;
-	   /* float:right;*/
 	   width: 50%;	
 	   padding: 20px;
 	   margin: 5px;
