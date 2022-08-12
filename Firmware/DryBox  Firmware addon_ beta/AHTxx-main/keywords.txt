@@ -1,0 +1,48 @@
+#######################################
+# Syntax Coloring Map AHTxx
+#######################################
+
+#######################################
+# Datatypes	(KEYWORD1)
+#######################################
+
+#######################################
+# Methods and Functions	(KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+readHumidity	KEYWORD2
+readTemperature	KEYWORD2
+setNormalMode	KEYWORD2
+setCycleMode	KEYWORD2
+setComandMode	KEYWORD2
+softReset	KEYWORD2
+getStatus	KEYWORD2
+setType	KEYWORD2
+
+
+#######################################
+# Instances	(KEYWORD2)
+#######################################
+
+AHTxx	KEYWORD2
+
+#######################################
+# Constants	(LITERAL1)
+#######################################
+
+AHT1x_SENSOR	LITERAL1
+AHT2x_SENSOR	LITERAL1
+
+AHTXX_ADDRESS_X38	LITERAL1
+AHT10_ADDRESS_X39	LITERAL1
+
+AHTXX_FORCE_READ_DATA	LITERAL1
+AHTXX_USE_READ_DATA	LITERAL1
+
+AHTXX_NO_ERROR	LITERAL1
+AHTXX_BUSY_ERROR	LITERAL1
+AHTXX_ACK_ERROR	LITERAL1
+AHTXX_DATA_ERROR	LITERAL1
+AHTXX_CRC8_ERROR	LITERAL1
+AHTXX_ERROR	LITERAL1

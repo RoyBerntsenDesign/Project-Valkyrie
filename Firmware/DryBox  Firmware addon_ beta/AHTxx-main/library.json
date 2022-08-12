@@ -1,0 +1,18 @@
+{
+  "name":        "AHTxx",
+  "keywords":    "humidity, temperature, aht10, aht15, aht20, aht21, aht25, aosong, asair, i2c",
+  "description": "AHT1x/AHT2x Digital Humidity & Temperature Sensor",
+  "authors":
+  {
+    "name":  "ejoyneering",
+    "email": "enjoyneering@protonmail.com"
+  },
+  "repository":
+  {
+    "type": "git",
+    "url":  "https://github.com/enjoyneering/AHTxx.git"
+  },
+  "version":    "1.1.6",
+  "frameworks": "arduino",
+  "platforms":  "*"
+}
