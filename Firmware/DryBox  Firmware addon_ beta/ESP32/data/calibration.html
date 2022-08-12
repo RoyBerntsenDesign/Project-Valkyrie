@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html><head>
+<title>Valkyrie Drybox Calibration</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head><body>
+
+<div id="main">
+  <nav>
+	<a href="/" title="Valkyrie Drybox Main">
+	  <img src="Valkyrie Logo 21.png" width="150" alt="Valkyrie Drybox">
+	</a>
+	<a href="/" title="">Home</a>
+	<a href="calibration.html" title="">Load Cell Calibration</a>
+	<a href="configuration.html" title="">Configuration</a>
+	<a href="troubleshooting.html" title="">Troubleshooting</a>
+  </nav>
+
+  <div id="onecol">
+	<ul>
+		<li>
+		Step 1:  Remove weight from the scale.  <a href="/emptycalibrate">Then calibrate the scale with no weight.</a>
+		</li>
+		<li>
+		Step 2:  Place the calibration weight on the scale (1kg up to the rated load of the load cell), enter the weight in grams, and submit.<br> 
+		<form method="get" action="/calibrate">
+			<br>
+			<label for="weight">Calibration Weight:</label><input type="text" id="weight" name="weight">
+		<input type="submit" value="Submit"></form>
+		</li>
+	</ul>
+	</div>
+</div>
+
+<div id="status">
+	<div id="statustext"></div>
+	</div>    
+</div>
+
+</body></html>

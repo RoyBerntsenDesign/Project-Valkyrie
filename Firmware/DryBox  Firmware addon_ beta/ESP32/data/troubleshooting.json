@@ -1,0 +1,14 @@
+[
+  {"name":"Total Weight","value":"%TOTAL_WEIGHT%"},
+  {"name":"Empty Spool Weight","value":"%EMPTY_SPOOL_WEIGHT%"},
+  {"name":"Filament Weight","value":"%FILAMENT_WEIGHT%"},
+  {"name":"Calibration Slope","value":"%CALIBRATION_SLOPE%"},
+  {"name":"Calibration Offset","value":"%CALIBRATION_OFFSET%"},
+  {"name":"Tare Offset","value":"%TARE_OFFSET%"},
+  {"name":"Drybox Name","value":"%DRYBOX_NAME%"},
+  {"name":"Refresh Time","value":"%REFRESH%"},
+  {"name":"DWC Report Time","value":"%DWC_REPORT_TIME%"},
+  {"name":"Temperature","value":"%TEMPERATURE%"},
+  {"name":"Humdity","value":"%HUMIDITY%"}
+]
+
