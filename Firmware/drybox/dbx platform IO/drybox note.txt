@@ -1,0 +1,2 @@
+drybox notes
+Beta files for arduino and Platform IO
