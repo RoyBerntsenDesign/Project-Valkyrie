@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html><head>
+<title>Valkyrie Drybox Calibration</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script>
+  
+	function submitData (url, id){
+	  let element = document.getElementById(id);
+	  var myvalue = element.value;
+	  var myname = element.getAttribute("name");
+	  fetch( url+'?'+myname+'='+myvalue )
+		.then(response => response.text())
+		.then(text => document.getElementById("statustext").innerHTML = text);
+	}
+  
+	function submit (url){
+	  fetch(url)
+		.then(response => response.text())
+		.then(text => document.getElementById("statustext").innerHTML = text);
+	}
+  
+  </script>
+
+</head><body>
+
+<div id="main">
+  <nav>
+	<a href="/" title="Valkyrie Drybox Main">
+	  <img src="Valkyrie Logo 21.png" width="150" alt="Valkyrie Drybox">
+	</a>
+	<a href="/" title="">Home</a>
+	<a href="calibration.html" title="">Load Cell Calibration</a>
+	<a href="configuration.html" title="">Configuration</a>
+	<a href="troubleshooting.html" title="">Troubleshooting</a>
+  </nav>
+
+  <div id="onecol">
+    <div>
+		Step 1:  Remove weight from the scale.  Then 
+			<button type="submit" value="Submit" onclick="submit('/emptycalibrate');">calibrate</button>
+			 the scale with no weight.
+	</div>
+	<div>
+		Step 2:  Place the calibration weight on the scale (1kg up to the rated load of the load cell), enter the weight in grams, and submit.<br> 
+	</div>
+	<div>		
+		<label for="weight">Calibration Weight:</label><input type="text" id="weight" name="weight" size="7" maxlength="7">
+		<button type="submit" value="Submit" onclick="submitData('/calibrate','weight');">Submit</button>
+	</div>
+  </div>
+</div>
+
+<div id="status">
+	<div id="statustext">
+	   <br>
+	</div>    
+</div>
+
+</body></html>

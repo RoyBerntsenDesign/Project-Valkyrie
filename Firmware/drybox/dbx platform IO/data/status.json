@@ -1,0 +1,8 @@
+[
+  {"name":"Total Weight","value":"%TOTAL_WEIGHT%"},
+  {"name":"Empty Spool Weight","value":"%EMPTY_SPOOL_WEIGHT%"},
+  {"name":"Filament Weight","value":"%FILAMENT_WEIGHT%"},
+  {"name":"Temperature","value":"%TEMPERATURE%"},
+  {"name":"Humdity","value":"%HUMIDITY%"}
+]
+

@@ -1,0 +1,144 @@
+html {
+    background-color: black; 
+    font-family: Roboto, Arial, Helvetica, Sans-Serif; 
+    color: #FFFFFFB3; 
+}
+a {
+  color: #FFFFFFB3;
+}
+a:visited {
+  color: #FFFFFFB3;
+}
+nav a {
+  color: #FFFFFFB3;
+  text-decoration: none;
+  padding: 10px;
+}
+nav a:hover {
+  color: #FFFFFFB3;
+  background-color: #008CBA;
+}
+button {
+  display: inline-block;
+  background-color: #008CBA;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 4px 30px;
+  text-decoration: none;
+  margin: 2px;
+  cursor: pointer;
+}
+ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+li {
+  padding-bottom: 10px;
+}
+
+body {
+  font-family: Arial,Helvetica,sans-serif;
+}
+div#main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+nav {
+  background-color: #424242;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center; 
+  margin: 5px
+}
+div#onecol {
+  display: flex;
+  flex-direction: column;
+  background-color: #424242;
+  padding: 10px;
+  margin: 5px;
+}
+div#onecol div{
+  padding: 10px;
+  margin: 0px;
+}
+div#leftcol {
+   background-color: #424242;
+   padding: 20px;
+   margin: 5px;
+}
+div#rightcol {
+   background-color: #424242;
+   padding: 20px;
+   margin: 5px;
+}	
+div#statustext {
+  background-color: #424242;
+  margin: 5px;
+  padding: 20px;
+}
+
+@viewport {
+  zoom: auto;
+}
+
+@media screen and (min-width: 601px) and (orientation: landscape) {
+	body {
+	  margin-top: 5px;
+	  margin-left: 5px;
+	  max-width: 900px;
+	}
+  div#main {
+    width: 900px;
+    flex-direction: row;
+  }
+  div#onecol {
+    width: 100%;
+  }
+	div#leftcol {
+	   width: 50%;
+	}
+	div#rightcol {
+	   width: 50%;	
+  }	
+  div#status{
+    width: 900px;
+  }
+}
+
+@media screen and (max-width: 1200px) and (orientation: portrait){
+	body {
+	  margin-top: 10px;
+	  margin-left: 10px;
+	  max-width: 600px;
+	}
+  nav {
+    flex-wrap: wrap;
+    height: 170px;
+    justify-content: center;
+  }
+  div#main {
+    width: 100%;
+    flex-direction: column;
+  }
+  div#onecol {
+    width: calc(100%-40px);
+  }
+	div#leftcol {
+    width: calc(100%-40px);	
+	}
+	div#rightcol {
+	   width: calc(100%-40px);	
+  }	
+  div#status{
+    display: flex;
+    width: 100%;
+  }
+  div#statustext {
+    width: 100%;
+  }
+}
+
