@@ -48,6 +48,10 @@ void fillPage(AsyncWebServerRequest * request, String page, String content);
 void sendAllMessageClose(AsyncWebServerRequest * request, String message, boolean dwc);
 boolean isAhtError();
 void setAhtError(boolean error);
+String formatSlope(float slope);
+String formatWeight(float grams);
+String formatAir(float measurement);
+
 
 // hx711 pins:
 const int HX711_dout = 18; // HX711 dout pin
@@ -234,7 +238,7 @@ void setupHX711(){
       setCalibrated(true);
     }
     Serial.print("Calibration slope: ");
-    Serial.println(calSlope);
+    Serial.println(formatSlope(calSlope));
     Serial.print("Calibration offset: ");
     Serial.println(calOffset);
     Serial.print("Empty spool weight: ");
@@ -808,11 +812,11 @@ String buildPostData(){
   str+="\nset global.dryBoxRH=";
   str+="\"";
   str+= !ahtError? formatAir(humidity) : "Error";
-  str+= "%RH\"";
+  str+= !ahtError? "%RH\"" : "";
   str+="\nset global.dryBoxTC=";
   str+="\"";
   str+= !ahtError? formatAir(temperature) : "Error";
-  str+= "C\"";
+  str+= !ahtError? "C\"" : "";
   str+="\nset global.preSpoolWeight=";
   str+="\"";
   str+= formatWeight(spoolWeight);
