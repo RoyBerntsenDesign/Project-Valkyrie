@@ -863,6 +863,9 @@ void loop() {
     if(lastAhtTime+ahtReadTime<millis()){
        readAHT();
        lastAhtTime = millis();
+       // update chart
+       events.send("ping",NULL,millis());
+       events.send(getSensorReadings().c_str(),"new_readings" ,millis());
     }
     // wait for WiFi connection
     if((lastReportTime+reportTime<millis())
@@ -872,8 +875,4 @@ void loop() {
        #endif
        lastReportTime = millis();
     }
-    if(lastAhtTime+ahtReadTime<millis()){
-      events.send("ping",NULL,millis());
-      events.send(getSensorReadings().c_str(),"new_readings" ,millis());
-   }
 }
