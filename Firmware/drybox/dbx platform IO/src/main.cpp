@@ -11,7 +11,7 @@
 #include <EEPROM.h>
 #endif
 #include "ESPAsyncWebServer.h"
-#include <ArduinoJson.h>
+//#include <ArduinoJson.h>
 #include "AsyncJson.h"
 #include "SPIFFS.h"
 #include <AHTxx.h>
@@ -843,11 +843,11 @@ String buildPostData(){
   str+="\nset global.dryBoxRH=";
   str+="\"";
   str+= !ahtError? formatAir(humidity) : "Error";
-  str+= !ahtError? "%RH\"" : "";
+  str+= !ahtError? "%RH\"" : "\"";
   str+="\nset global.dryBoxTC=";
   str+="\"";
   str+= !ahtError? formatAir(temperature) : "Error";
-  str+= !ahtError? "C\"" : "";
+  str+= !ahtError? "C\"" : "\"";
   str+="\nset global.preSpoolWeight=";
   str+="\"";
   str+= formatWeight(spoolWeight);
