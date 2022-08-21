@@ -12,6 +12,7 @@
 #endif
 #include "ESPAsyncWebServer.h"
 #include <ArduinoJson.h>
+#include "AsyncJson.h"
 #include "SPIFFS.h"
 #include <AHTxx.h>
 
@@ -51,7 +52,7 @@ void setAhtError(boolean error);
 String formatSlope(float slope);
 String formatWeight(float grams);
 String formatAir(float measurement);
-
+String getSensorReadings();
 
 // hx711 pins:
 const int HX711_dout = 18; // HX711 dout pin
@@ -89,6 +90,7 @@ String stateURL = "http://" + String(DWC_NAME) + "/rr_gcode?gcode=set%20global.i
 WiFiMulti wifiMulti;
 AsyncWebServer  server(80);
 HX711_ADC LoadCell(HX711_dout, HX711_sck);
+AsyncEventSource events("/events");
 
 int lastReportTime = 0;
 
@@ -168,6 +170,24 @@ void setup() {
   DefaultHeaders::Instance().addHeader("Access-Control-Max-Age", "86400");
 
   //TODO add caching to proper pages
+  events.onConnect([](AsyncEventSourceClient *client){
+    if(client->lastId()){
+      Serial.printf("Client reconnected! Last message ID that it got is: %u\n", client->lastId());
+    }
+    // send event with message "hello!", id current millis
+    // and set reconnect delay to 1 second
+    client->send("hello!", NULL, millis(), 10000);
+  });
+  //events.setAuthentication("user", "pass");
+  server.addHandler(&events);
+
+  server.on("/readings", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(200, "text/json", getSensorReadings());
+  });
+  server.on("/chartscript.js", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/chartscript.js", "application/javascript");
+    Serial.println("chartscript.js served.");
+  });
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     fillPage(request, "/index.html", "text/html");
     Serial.println("Index served.");
@@ -279,6 +299,17 @@ void runTest(AsyncWebServerRequest* request, uint8_t* data, size_t len, size_t i
     Serial.println("No test defined.");
     returnOK(request, "No test defined.");
     return;
+}
+
+String getSensorReadings(){
+    DynamicJsonDocument doc(1024);
+    //doc["Temperature"] = "10";
+    //doc["Humidity"] = "20";
+    doc["Temperature"] = !isAhtError()? formatAir(temperature) : "Error";
+    doc["Humidity"] = !isAhtError()? formatAir(humidity) : "Error";
+    String jsonString;
+    serializeJson(doc, jsonString);
+    return jsonString;
 }
 
 int getScaleWeight(){
@@ -841,4 +872,8 @@ void loop() {
        #endif
        lastReportTime = millis();
     }
+    if(lastAhtTime+ahtReadTime<millis()){
+      events.send("ping",NULL,millis());
+      events.send(getSensorReadings().c_str(),"new_readings" ,millis());
+   }
 }

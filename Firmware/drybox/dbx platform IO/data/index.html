@@ -4,6 +4,8 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
 <script>
   var var1 = setInterval(aload, %REFRESH%);
 
@@ -57,6 +59,8 @@
     Loading...
   </div>
   <div id="rightcol">
+    <div id="container"></div>
+    <br>
     <ul>
       <li><button type="submit" value="Submit" onclick="submit('/tare');" >Tare</button>
       </li>
@@ -66,6 +70,7 @@
       </li>
     </ul>
   </div>
+  <script src="chartscript.js"></script>
 </div>
 <div id="status">
   <div id="statustext">
