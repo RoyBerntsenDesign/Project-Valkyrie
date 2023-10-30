@@ -4,7 +4,7 @@ A DIY High-Temp 3D Printer project designed by professionals to be a premium DIY
 - https://discord.gg/C77tsY5
 - CAD View: https://a360.co/3b4RmPg
 
-## Specifications for Designed Size (Scaleable)
+## Specifications for Designed Size
 - Frame footprint - 500X520X750
 - Print volume - 310X310X300
 - Weight ~45Kg
