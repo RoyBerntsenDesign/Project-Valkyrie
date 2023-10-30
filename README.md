@@ -2,7 +2,7 @@
 A DIY High-Temp 3D Printer project designed by professionals to be a premium DIY FFF/FDM 3d printer
 - https://vkingprinter.com/project-valkyrie/ 
 - https://discord.gg/C77tsY5
-- CAD View: https://a360.co/3b4RmPg
+- CAD View: https://a360.co/3QBHhLP
 
 ## Specifications for Designed Size
 - Frame footprint - 500X520X750
