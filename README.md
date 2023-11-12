@@ -6,7 +6,7 @@ A DIY High-Temp 3D Printer project designed by professionals to be a premium DIY
 
 ## Specifications for Designed Size
 - Frame footprint - 500X520X750
-- Print volume - 310X310X300
+- Print volume - 320X320X280
 - Weight ~45Kg
 - Option to print high temp materials up to 450C nozzle temp
 ## Valkyrie Main Features
