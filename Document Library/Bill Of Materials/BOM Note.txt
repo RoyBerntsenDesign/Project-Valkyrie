@@ -5,3 +5,5 @@ Stage-I is including chamber and drybox features
 
 Fasteners BOM is seperate as you might have a lot of that stuff already
 Fasteners BOM price is included in Stage-0 and Stage-I
+
+NB! When ordering the CNA Hight temp full metal rails you MUST add a note in the order telling you want full metal carriages and medium preload!
