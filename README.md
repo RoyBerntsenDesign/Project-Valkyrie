@@ -1,10 +1,10 @@
 # Project-Valkyrie
 A DIY High-Temp 3D Printer project designed by professionals to be a premium DIY FFF/FDM 3d printer
-- https://discord.gg/C77tsY5
+- https://discord.gg/mWARcpt7NQ
 
 ## Specifications for Designed Size
 - Frame footprint - 500X520X750
-- Print volume - 320X320X280
+- Print volume - 320X320X290
 - Weight ~45Kg
 - Option to print high temp materials up to 450C nozzle temp
 ## Valkyrie Main Features
@@ -13,12 +13,12 @@ A DIY High-Temp 3D Printer project designed by professionals to be a premium DIY
 - Inverted CoreXY allows for only 2 toothed idlers in the AB system VS 6 on the standard kinematics
 - Easy access and simple belt tension on all 5 belts
 - Stall-detection homing on all 2+3 XY+3Z axis
-- Light tool-head riding on MGN 9 and carbon X-axis
+- Light tool-head riding on MGN9h X-axis
 - All A, B and Z stepper motors all located outside the heated chamber
 ### Heated Chamber up to 80C
 - Engineered insulation options for high level of safety and minimal thermal loss
 - High end ACM Outer Paneling
-- Double glazed window for inside viewing and good insulation
+- Double glazed polycarbonate window for inside viewing and good insulation
 ### Integrated Heated Dry-box
 - Filament weight control by load-cell
 - Dry-box temp control up to 70C
