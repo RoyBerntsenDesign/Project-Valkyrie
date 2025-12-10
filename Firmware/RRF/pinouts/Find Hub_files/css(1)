@@ -1,0 +1,9 @@
+/*
+ * See: https://fonts.google.com/license/googlerestricted
+ */
+@font-face {
+  font-family: 'Google Sans Text';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/l/font?kit=5aUu9-KzpRiLCAt4Unrc-xIKmCU5mEhkgo3FI_E8lH570oBdIw&skey=b20c8ebc9802c116&v=v24) format('woff2');
+}
