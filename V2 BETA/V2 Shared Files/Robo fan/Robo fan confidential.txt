@@ -1,0 +1,32 @@
+Hi Mark-san,
+
+Sorry for the late reply as we took some time to check with internal R&D for the model you are looking for.
+
+The PWM and maximum operating temperature specification of 20N183L010 is 40℃ (temperature around the fan). 
+Whether there is a potential temperature hazard needs to be determined by actual measurement of the temperature rise under the worst operating environment to ensure that the temperature of the copper wire (155℃ max) and electronic components is within the specification range.
+
+The chip used in the 20N183L010 only supports power supply start/stop; PWM can only adjust speed, not start/stop.
+ 
+ 
+
+Per our R&D's confirmation,  the chip has already reached its end-of-life (EOL) and subsequently the PN:20N183L010 has been EOLed in our system as well, thus I have requested our R&D to propose another similar motor 20N704V170 for you to review.
+The spec sheet and 3D drawing is attached below for your reference.
+
+This model 20N704V170 that can be started and stopped using PWM. 
+
+Additionally, please take note that this model has an automatic restart function. If the fan fails to start, there will be a 5-restart logic. Therefore, when designing the overall system logic, please kindly allow for an extra time for the fan start-up; approximately 10 seconds is appropriate.
+Kindly review our proposal and let us know should you have any further questions. Thanks.
+
+Thanks a lot.
+
+Regards,
+Tony Zhang 
+Assistant Manager
+Sales & Business Development
+Tel:         (65) 6540 0741
+Email: tony.zhang@nidec.com
+Nidec Singapore Pte Ltd
+80 Bendemeer Road #03-03 
+Singapore 339949
+WH: 8AM-5PM SGT
+This information is confidential and may be legally privileged. It is the property of Nidec Singapore Pte Ltd. which is a subsidiary of Nidec Corporation Japan, and/or its Group companies. If you are not the intended recipient, please notify the sender and delete this email and all attachments immediately. Please do not forward, copy, print, publish, or distribute to any other parties.
