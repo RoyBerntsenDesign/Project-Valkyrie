@@ -1,0 +1,14 @@
+Using High-Temperature RTV (Room Temperature Vulcanizing) silicone is a highly effective, long-lasting method for adhering a Keenovo silicone heater to a 3D printer build plate, often outlasting standard adhesive backing. High-temp RTV (specifically red or copper) can withstand the high temperatures required for heated beds (often exceeding 100°C–170°C). 
+Recommended RTV Application Method
+1. Prep the Surfaces: Clean both the aluminum build plate and the silicone heater backing with isopropyl alcohol (IPA) to remove oils and dirt.
+2. Sand the Plate: Lightly sand the underside of the aluminum build plate with 150-grit sandpaper to improve mechanical adhesion.
+3. Apply the RTV: Apply a liberal amount of high-temp red RTV to the heater pad. Use a gloved finger to spread it into a thin, even layer across the entire surface, ensuring it reaches the edges.
+4. Apply and Flatten: Carefully lay the heater on the plate, starting from one edge to avoid trapping air bubbles.
+5. Cure Under Pressure: Place the assembly on a flat surface and place a heavy, flat weight (e.g., 20 lb kettlebell or heavy books) on top for 6–24 hours to ensure a thin, consistent bond line.
+6. Full Cure Time: While RTV sets quickly, wait at least 24 to 72 hours for a full, maximum-strength cure before heating. 
+Voron Documentation +4
+Tips for Success
+* Avoid Bubbles: Air pockets under the heater will cause it to overheat and fail prematurely (burn out) because the plate cannot act as a heat sink.
+* Edge Sealing: Some users recommend sealing the very edge of the heater with RTV to prevent the adhesive from drying out, which is a common cause of peeling.
+* Alternatives to Adhesive: For better long-term reliability, buy the Keenovo heater without the factory 3M adhesive and use RTV for the entire installation. 
+
