@@ -1,0 +1,6 @@
+echo "Menu G29"
+M300 S400 P200
+G4 P200
+M291 R"Do you want to Run G29" P"your choice" S4 T5 J1 K{"Yes","NO"} F5
+if input = 0
+    G29
