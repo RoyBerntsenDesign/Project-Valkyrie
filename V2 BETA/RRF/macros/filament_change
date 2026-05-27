@@ -1,10 +1,7 @@
 ;M600 Can be called pause.g macro
 ;Place over bucket
 M564 S0                         ; let travel outside print zone
-var x = 235                     ; location Bucket X
-var y = -26                     ; location of bucket Y
-var spd = 15000                 ; The speed of which you want the hotend to move to the "park" location
-var lift = 19                   ; The Z clearance you want your nozzle to have from the print while changing filament
+var lift = 15                   ; The Z clearance you want your nozzle to have from the print while changing filament
 var purge = 60                  ; The amount of filament your hotend need to purge for a clean filament/color change
 var unload = 100                ; The length of which filament have to be retracted to clear the meltzone
  
@@ -14,19 +11,19 @@ M400                            ; Wait for moves to finish
 G91                             ; Relative positioning
 M83                             ; Extruder relative positioning
 G10                             ; Retraction
-G1 Z1.00 X20.0 Y20.0 F20000     ; Short quick move to disengage from print
-G1 Z{var.lift - 1} F800         ; Go to spesified Z clearance
+G1 Z1.00 X20.0 Y20.0 F24000     ; Short quick move to disengage from print
+G1 Z{var.lift} F3000        	; Go to spesified Z clearance
 G90                             ; Absolute positioning
-G1 X{var.x} Y{var.y} F{var.spd} ; Move the nozzle to the location defined in the settings section
-G1 E2 F800                      ; Extrude slightly to help form a nice tip on the filament
-G1 E{-(var.unload)} F800        ; Retract filament from the meltzone
+M98 P"/macros/nozzle_park"
+G1 E2 F2400                      ; Extrude slightly to help form a nice tip on the filament
+G1 E{-(var.unload)} F1800        ; Retract filament from the meltzone
 M400                            ; Wait for moves to finish
-
 M291 S4 R"Manual Filament Change" P"Change & prime filament, then press OK." K{"OK","SKIP",}
 ; "OK"
 if input == 0
-  G1 E{var.purge} F200          ; Purge filament
+  G1 E{var.purge} F2400          ; Purge New filament
+  M400
+  M98 P"/macros/nozzle_brush"   
 ; "SKIP"
 if input == 1 
-  G1 E{var.unload} F800         ; Extrude filament back to the meltzone  
-M400                            ; Wait for moves to finish
+    echo "skip"

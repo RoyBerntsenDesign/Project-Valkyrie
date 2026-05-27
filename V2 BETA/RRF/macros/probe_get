@@ -1,7 +1,7 @@
 ;Probe Pickup"
 M564 S0 H0                         ;  S1 = limit movement within axis boundaries, S0 = allow movement outside boundaries
 M400                            
-if sensors.probes[0].value[0]==0   ; if sensor is value other than 1000 do this, 0 = probe attached
+if sensors.probes[0].value[0]==0   ; 1000 probe not attached , 0 = probe attached
 	echo "Probe already picked up"
 else	
 	G1 X36 F12000                     ; X position of flint zone

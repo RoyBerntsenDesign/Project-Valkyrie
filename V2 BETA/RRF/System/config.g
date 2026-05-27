@@ -148,6 +148,17 @@ T0 ; Select Tool 0
 M593 P"zvd" F46.0 ; use ZVD input shaping to cancel ringing at X Hz
 
 
+;~~~~~ Global config settings center bed ~~~~~
+if !exists(global.center_bed_Y)
+	global center_tool_Y  = 159  
+if !exists(global.center_bed_X)
+	global center_tool_X  = 159  
+
+
+
+
+
+
 ; call macros
 M98 P"/macros/z_home_high" ;home bed high (at the bottom)
 M98 P"/macros/startup_homing" ;ask about homing Z - make sure bed is clear

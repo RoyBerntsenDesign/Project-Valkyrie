@@ -3,7 +3,7 @@ M561                                             ; clear any bed transform
 ;== If the printer hasn't been homed, home it ==
 if !move.axes[0].homed || !move.axes[1].homed 
 	G28
-if sensors.probes[0].value[0] == 1000            ; if sensor is value other than 1000 do this, 0=probe attached
+if sensors.probes[0].value[0] == 1000            ; 1000 == probe not attached, 0=probe attached
 	echo "already homed, going to pick up probe"
 	M98 P"/macros/probe_get"                        ; probe pick up
 if sensors.probes[0].value[0] == 0               ; Probe the bed and do auto calibration
@@ -25,8 +25,8 @@ if sensors.probes[0].value[0] == 0               ; Probe the bed and do auto cal
 				break
 			echo "Repeating calibration because deviation is too high (" ^ move.calibration.initial.deviation ^ "mm)"
 echo "Auto calibration successful, deviation", move.calibration.final.deviation ^ "mm"
-G1  X153 Y177.5 F30000                           ; move to center bed 	
-G1 Z15 F1000                                     ; get the head out of the way
+G1  X{global.center_tool_X} Y{global.center_tool_Y} F30000               ; probe to center bed                            ; move to center bed 	
+G1 Z15 F3000                                     ; get the head out of the way
 M400
 echo"bed last stop height"                                        ; probe to center bed  
 echo sensors.probes[0].lastStopHeight   

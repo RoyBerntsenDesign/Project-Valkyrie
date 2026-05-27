@@ -1,5 +1,4 @@
 ; homeall.g G28
-G1 F18000
 if !move.axes[0].homed || !move.axes[1].homed ; check to see if X and Y have been homed
 	echo "G28 Homeall.g "
     M561                                      ; clear bed transforms   (same as G29 S2)

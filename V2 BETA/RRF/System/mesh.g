@@ -3,7 +3,7 @@ echo "mesh.g G29"
 if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
     G28                            ; Home all axes if not already homed
 
-if sensors.probes[0].value[0] == 0 ; if sensor is value =1000 not attached , 0=probe attached
+if sensors.probes[0].value[0] == 0 ;1000 = not attached , 0=probe attached
 	echo "probe attached"
 else 
     M98 P"/macros/probe_get"       

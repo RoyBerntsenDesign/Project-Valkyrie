@@ -20,4 +20,4 @@ M906 X1000 Y1000         ; reset homing motor current
 M915 P0:1 S35 H500 F0 R1 ; Configure Stall Detection
 M400                     ; make sure everything has stopped before we make changes
 G90                      ; absolute positioning
-G1 F30000 X250           ; back away from rail
+G1 F24000 X250           ; back away from rail

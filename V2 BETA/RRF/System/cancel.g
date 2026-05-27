@@ -1,7 +1,6 @@
 ;cancel.g
 echo "Cancel.g "
-G1 E-0.5 F200             ; retract filament
-G1 F20000
+G1 E-0.5 F1800             ; retract filament
 echo"park tool head"      ; Move printhead end pos
 M98 P"/macros/nozzle_park"                 
 echo"tool head over bucket"

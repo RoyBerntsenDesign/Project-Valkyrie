@@ -1,7 +1,7 @@
 echo "mesh_menu"
 M400
-M300 S400 P200  
-M400                                     ;play bleep
+M300 S400 P200  ;play bleep
+M400                                     
 ;~~~~~~ Menu if you wish to do a mesh ~~~~~~
 M291 R"Do you want to Run G29" P"your choice" S4 T5 J2 K{"Adaptive mesh", "run full Mesh", "clear heightMap"} F5
     if result== -1

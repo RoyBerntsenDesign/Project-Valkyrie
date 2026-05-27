@@ -18,5 +18,5 @@ M400                     ; make sure everything has stopped before we make chang
 M906 X1000 Y1000         ; Reset motor current
 G90                      ; absolute positioning
 M915 P0:1 S35 H500 F0 R1 ; Configure Y-Axis Stall Detection
-G1 F30000 Y152.5         ; move to probe position midle bed (x155 y155)
+G1  Y{global.center_tool_Y} F30000               ; tool to center Y postionp 
 M564 S1 H1

@@ -41,7 +41,7 @@ if var.Chamber_Ramping
                                                 M141 P{var.heater_number} , S{var.target_temperature}
         else    
                 echo " Chamber not Active"
-                                                                                         ; if heat.heaters[3].state == "off" ||  sensors.analog[3].lastReading < 35  ;turn off fan when chamber has cooled down 
+                                                                                         ; if  sensors.analog[3].lastReading < 35  ;turn off fan when chamber has cooled down 
                                                                                          ; M106 P2 S0
         echo heat.heaters[var.heater_number].avgPwm, "Average PWM"
 

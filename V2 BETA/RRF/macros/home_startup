@@ -1,7 +1,5 @@
 echo "home_startup "
 M564 S0 H0 ; move not homed and negative axis value
-G91
-G1 Y30
 M98 P"/sys/homex.g"
 if sensors.probes[1].value[0] <500  ;check to see if probe is attached  <500 probe attached
    M98 P"0:/macros/home_z_max" 

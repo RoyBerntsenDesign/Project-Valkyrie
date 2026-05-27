@@ -3,8 +3,8 @@ echo "nozzle_brush"
 
 var bedSizeX = 320
 var bedSizeY = 310
-var speed1 = 20000
-var speed2  = 20000
+var speed1 = 24000
+var speed2  = 24000
 var xMinBrush =245
 var xMaxBrush = 280
 var xMinWipe = 215
