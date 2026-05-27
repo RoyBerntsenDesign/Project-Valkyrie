@@ -1,0 +1,42 @@
+;nozzle_brush
+echo "nozzle_brush"
+
+var bedSizeX = 320
+var bedSizeY = 310
+var speed1 = 20000
+var speed2  = 20000
+var xMinBrush =245
+var xMaxBrush = 280
+var xMinWipe = 215
+var xMaxWipe = 228
+var yPos = -30
+var zheight = 5
+var numberWipesBrush = 2    ; wipe nozzel with brush  x times 
+var numberWipesSilicone = 1 ; wipe nozzel with silicon  x times 
+
+;~~~~~~~~~~~do not alter anything below this line ~~~~~~~~~~~~~~~~
+if sensors.probes[0].value[0]==0   ; if sensor is value other than 1000 do this, 0 = probe attached
+	echo "Probe needs dropping  off"
+	M98 P"/macros/probe_leave" 
+M564 S0                             ; let travel outside print zone
+G1 F{var.speed1}                    ; set move speed
+;G1 X{var.xMaxWipe}                  ; move to right side of silicone wiper
+G1 Y{var.yPos}                      ; move to center of wiper 
+
+; wipe nozzel on silicone wiper 
+while true
+    if iterations = {var.numberWipesSilicone}
+        break
+    G1 F{var.speed1} X{var.xMinWipe}
+    G1 F{var.speed1} X{var.xMaxWipe}
+; end loop
+
+while true
+    if iterations = {var.numberWipesBrush}
+        break
+    G1 F{var.speed1} X{var.xMinBrush}
+    G1 F{var.speed1} X{var.xMaxBrush}
+; end loop
+; finish off at brush station by passing nozzel over silicon wiper 
+G1 F{var.speed1} X{var.xMaxWipe}
+echo "nozzle_brush finished"

@@ -1,0 +1,13 @@
+echo "nozzle_park"
+var xbucketPos = 236            ; go in between wiper and brush
+var ybucketPos = -34
+
+;~~~~~ do not change anuything below ~~~~~
+
+if sensors.probes[0].value[0]==0 ; if sensor is value other than 1000 do this, 0 = probe attached
+    M98 P"/macros/probe_leave" 
+    M564 S0                      ;  S1 = limit movement within axis boundaries, S0 = allow movement outside boundaries
+M564 S0 H0                       ;  S1 = limit movement within axis boundaries, S0 = allow movement outside boundaries
+G1 X{var.xbucketPos}
+G1 Y{var.ybucketPos}
+G1 X{var.xbucketPos}-10

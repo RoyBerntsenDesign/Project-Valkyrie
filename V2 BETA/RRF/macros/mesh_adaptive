@@ -1,0 +1,48 @@
+echo "mesh_adaptive"
+
+var gridPoints = 5
+
+;~~~~~~~~~~~~~~ donot anything below this line~~~~~~~~~~~~~~~~~ 
+; /sys/adaptive_mesh.g - Dynamic Bed Mesh for RRF
+; Parameters : R=minX, S=minY, T=maxX, U=maxY
+
+M561                                                                  ; Clear old mesh
+
+var minX = param.R
+var minY = param.S
+var maxX = param.T
+var maxY = param.U
+
+; Define margin (e.g., 5mm)
+var margin = 5
+
+
+; Safety check to ensure we don't go outside bed boundaries
+; Change 300, 300 to your printer's max X and Y
+
+set var.minX = var.minX +var.margin
+set var.minY = var.minY +var.margin
+set var.maxX = var.maxX +var.margin
+set var.maxY = var.maxY +var.margin
+
+
+
+if var.minX < 0
+    set var.minX = 0
+if var.minY < 0
+    set var.minY = 0
+if var.maxX > 320
+    set var.maxX = 320
+if var.maxY > 320
+    set var.maxY = 320
+
+; Define the mesh area using M557
+echo  var.margin
+echo  var.minX
+echo  var.maxX
+echo  var.minY
+echo  var.maxY
+
+M557 X{var.minX + var.margin, var.maxX - var.margin} Y{var.minY + var.margin, var.maxY - var.margin} P{var.gridPoints}
+M400
+
