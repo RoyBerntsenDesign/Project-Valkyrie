@@ -1,6 +1,6 @@
 ;set Center position of bed, probe offset gets taken into account 
-var Xcenter = move.axes[1].max/ 2 
-var Ycenter =  move.axes[0].max/ 2 
+var Xcenter = move.axes[0].max/ 2 - sensors.probes[0].offsets[0]
+var Ycenter =  move.axes[1].max/ 2 - sensors.probes[0].offsets[1]
 G1 X{var.Xcenter} Y{var.Ycenter} F24000 ; go to bed centre  
 echo   var.Xcenter,var.Ycenter
 echo sensors.probes[0].offsets[1],sensors.probes[0].offsets[0]                              

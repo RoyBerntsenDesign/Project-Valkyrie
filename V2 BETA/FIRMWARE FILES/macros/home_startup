@@ -1,0 +1,23 @@
+echo "home_startup "
+M98 P"0:/macros/home_z_max" 
+M400   
+M98 P"/sys/homey.g" 
+M400
+M98 P"/sys/homex.g"
+M400
+;~~~~~~ menu to home Z if the bed is clear ~~~~~~
+M291 R"Home Z, Make sure Bed is clear!" S4 T20 J0 P"Do you want to Home Z" K{"Yes","No",}
+   if input == 0
+      M98 P"0:/macros/probe_get"    ; probe pick up
+      M400
+      M98 P"/sys/homez.g"           ; P define the parameter and is not part of the name
+      M400
+      M98 P"/sys/bed.g"
+      G1 Z100 F3000
+   if input == 1 
+         echo " clear the bed first "
+         M400                          ; Wait for moves to finish
+if  sensors.probes[1].value[0] == 1000
+      M291 R"Check the Anvil switch " S4 T20 J0 P"Do you want to re run Start Sequence" K{"Yes","No",}
+      if input == 0
+         M98 P"0:/macros/home_startup" ; re run start sequence

@@ -1,0 +1,20 @@
+echo "mesh_menu"
+M400
+M300 S400 P200  
+M400                                     ;play bleep
+;~~~~~~ Menu if you wish to do a mesh ~~~~~~
+M291 R"Do you want to Run G29" P"your choice" S4 T5 J2 K{"Adaptive mesh", "Run full Mesh", "Clear heightMap"} F5
+    if result== -1
+        echo "no selection"
+    else
+        if input = 0
+            echo input
+            G29 P"/macros/mesh_adaptive" ;create height map
+        elif input = 1
+            echo input
+            M557 X15:295 Y15:280 P5      ; same as in config
+            G29                          ; run bed mesh settings in config
+        elif input = 2
+            echo input
+            M561
+            G29 S2                       ; clear height map

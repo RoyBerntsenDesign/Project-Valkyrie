@@ -1,0 +1,13 @@
+var position_dockX = ((move.axes[1].max/ 2) -109.5) ; postion of dock from centre of bed x axis
+var position_dockY = ((move.axes[0].max/ 2)-185)    ; postion of dock from centre of bed Y axis
+echo var.position_dockX,var.position_dockY
+
+
+echo "Probe Drop Off"
+M564 S0                             ;  S1 = limit movement within axis boundaries, S0 = allow movement outside boundaries
+if sensors.probes[0].value[0]!=1000 ; if sensor is value other than 1000 do this
+	G1 x{var.position_dockX}  F18000
+	G1 Y{var.position_dockY} F18000
+	G1 X 70 F5000
+	G1 Y30 F18000
+M564 S1
