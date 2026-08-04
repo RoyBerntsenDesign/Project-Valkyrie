@@ -1,0 +1,15 @@
+echo "nozzle_park"
+var Xbucket_position = ((move.axes[1].max/ 2) +97) ; postion of dock from centre of bed x axis
+var Ybucket_position = ((move.axes[0].max/ 2)-185)     ; postion of dock from centre of bed Y axis
+echo var.Xbucket_position,var. Ybucket_position
+
+
+;~~~~~ do not change anuything below ~~~~~
+
+if sensors.probes[0].value[0]==0                      ; if sensor is value >0 probe not attached, 0 = probe attached
+    M98 P"/macros/probe_leave" 
+    M564 S0                                           ; S1 = limit movement within axis boundaries, S0 = allow movement outside boundaries
+M564 S0                                               ; S1 = limit movement within axis boundaries, S0 = allow movement outside boundaries
+G1 X{var.Xbucket_position} F24000                     ; move between wiper on bucket
+G1 Y{var.Ybucket_position} F24000                      ; move between wiper on bucket
+G1 X{var.Xbucket_position}-10                         ; move to centre of bucket

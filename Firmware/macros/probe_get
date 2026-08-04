@@ -1,0 +1,30 @@
+var position_dockX = ((move.axes[1].max/ 2) -109.5) ; postion of dock from centre of bed x axis
+var position_dockY = ((move.axes[0].max/ 2)-185)    ; postion of dock from centre of bed Y axis
+echo var.position_dockX,var.position_dockY
+;Probe Pickup"
+M564 S0 H0                                          ; S1 = limit movement within axis boundaries, S0 = allow movement outside boundaries
+M400                            
+if sensors.probes[0].value[0]==0                    ; if sensor is value other than 1000 do this, 0 = probe attached
+	echo "Probe already picked up"
+else	
+	echo var.position_dockX
+	G1 X{var.position_dockX}  F24000                   ; X position of flint zone
+	G1 Y{var.position_dockY} F24000                    ; Y position of flint zone  
+	M400                                               ; wait for moves to finish
+	G1 Y40 F18000                                      ; slide probe out of dock - slowly
+	M400
+	M564 S0                                            ; S1 = limit movement within axis boundaries, S0 = allow movement outside boundaries
+	echo "Finished picking up Probe"
+;````` Waring that probe has not been picked up ~~~~~
+if sensors.probes[0].value[0]=1000                  ;warning moves to alert of a problem 
+	G1 X100 Y60 F10000  
+	G1 X60 Y60 F10000               
+	G1 X100 Y60 F10000  
+	G1 X60 Y60 F10000
+	G1 X100 Y60 F10000  
+	G1 X60 Y60 F10000               
+	G1 X100 Y60 F10000  
+	G1 X60 Y60 F10000
+	G1 X40 Y40 F10000
+	abort "Probe not picked up!"
+M564 S1

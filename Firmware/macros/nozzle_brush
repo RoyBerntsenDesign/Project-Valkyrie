@@ -1,0 +1,39 @@
+;nozzle_brush
+echo "nozzle_brush"
+var Xbucket_position = ((move.axes[1].max/ 2) +89) ; postion of dock from centre of bed x axis
+var Ybucket_position = ((move.axes[0].max/ 2)-185) ; postion of dock from centre of bed Y axis
+echo var.Xbucket_position ,var.Ybucket_position    ; display distances
+var Xbrush_distance = 45                           ; distance from park to brush and back
+var wipe_distance = 20                             ; distance from park to wipe and back
+var number_wipes_brush = 4                           ; wipe nozzel with brush  x times 
+var number_wipes_silicone = 4                        ; wipe nozzel with silicon  x times 
+var speed1 = 20000                                  ; speed 1
+var speed2 = 15000                                  ; speed 2
+
+;~~~~~~~~~~~do not alter anything below this line ~~~~~~~~~~~~~~~~
+if sensors.probes[0].value[0]==0                   ; if sensor is value other than 1000 do this, 0 = probe attached
+	echo "Probe needs dropping  off"
+	M98 P"/macros/probe_leave" 
+M564 S0                                            ; let travel outside print zone
+G1 F{var.speed1}                                   ; set move speed
+G1 X{var.Xbucket_position}                         ; move past wiper 
+M400 
+G1 Y{var.Ybucket_position} 
+; wipe nozzel on silicone wiper 
+G91
+while true
+    if iterations = var.number_wipes_silicone
+        break
+    G1 X{-var.wipe_distance} F{var.speed1}
+    G1 X{var.wipe_distance} F{var.speed1}
+
+while true
+    if iterations = var.number_wipes_brush
+        break
+    G1 X{var.Xbrush_distance} F{var.speed1}
+    G1 X{-var.Xbrush_distance} F{var.speed1}
+; end loop
+; finish off at brush station by passing nozzel over silicon wiper 
+G1  X{-var.wipe_distance } F{var.speed1}
+G90
+echo "nozzle_brush finished"

@@ -1,0 +1,13 @@
+; home_max_Z.g
+echo "home_z_max"          ; called to home the X axis
+M400                       ; make sure everything has stopped before we make changes
+G91                        ; relative positioning
+M915 P3:4:5 S2 H450 F0 R0  ; Configure Stall Detection
+M906 Z550                  ; set homing motor current
+G1 H1 Z350 F5000           ; Home Z-Axis mm/m
+M400                       ; make sure everything has stopped before we make changes
+G90                        ; absolute positioning
+M906 Z700                  ; set homing motor current
+M915 P3:4:5 S20 H450 F0 R1 ; Configure Stall Detection less sensattive
+echo "Bed has landed"      ; Bed at max Z
+echo "home_z_max finished"
