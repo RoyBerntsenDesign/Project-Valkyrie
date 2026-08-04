@@ -1,4 +1,5 @@
 # Valkyrie V2
+[![Join our Discord](https://img.shields.io/badge/Discord-Join_the_community-5865F2?logo=discord&logoColor=white)](https://discord.gg/mWARcpt7NQ)
 
 Source-available, non-commercial DIY high-temperature CoreXY FFF platform.
 
