@@ -129,6 +129,12 @@ Still to be verified:
 
 The technical overview describes the machine architecture and prototype configuration. It is not an assembly manual or electrical wiring guide.
 
+## Support
+
+For build assistance, troubleshooting, and questions about Valkyrie V2, please join the official Project Valkyrie Discord server:
+
+[**Get support on Discord**](https://discord.gg/mWARcpt7NQ)
+
 ## Safety
 
 Valkyrie V2 uses mains-voltage heaters, high current, high temperatures, moving machinery, and liquid cooling. Mains-voltage components, wiring, connectors, protective earth, fusing, insulation, and clearances must be selected and installed for the configured input voltage by a qualified person in accordance with applicable regulations and manufacturer ratings.
