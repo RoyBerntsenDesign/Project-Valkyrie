@@ -17,7 +17,7 @@ This repository represents the initial public V2 release. Verified prototype res
 
 Explore the complete Valkyrie V2 assembly directly in Autodesk Fusion:
 
-**➡️ https://a360.co/4qquDOy**
+**➡️ [Open the Valkyrie V2 Fusion 360 Model](https://a360.co/4qquDOy)**
 
 The online model includes the latest public design and allows you to inspect the complete assembly and individual components directly in your browser or Fusion 360.
 
