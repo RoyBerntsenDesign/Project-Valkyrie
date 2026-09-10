@@ -142,22 +142,21 @@ G10 P0 X0 Y0 Z0                                              ; set tool 0 axis o
 G10 P0 R0 S0                                                 ; set initial tool 0 active and standby temperatures to 0C
 T0                                                           ; Select Tool 0
 
-; Accelerometer
-; M955 P0 C"spi.cs1+spi.cs0" I50 S1344 R10 ; all wires connected to temp DB connector
-
 ; Inputshaping
 M593 P"zvd" F46.0                                            ; use ZVD input shaping to cancel ringing at X Hz
 
-;templog globals______________
+; global variables
+; templog globals______________
 if !exists(global.logCounter)
     global logCounter = 0
 if !exists(global.start_uptime)
     global start_uptime = 0
 
-;___________________________________________________________________
-; Home at startup
+;~~~~~ Custom Macros ~~~~~
+; home high at startup
+M98 P"/macros/home_z_max"                                   ; Home Z at the bottom independently by stallguard
+M98 P"/sys/homey.g"                                         ; Home Y axis in the front by stallguard
+M98 P"/sys/homex.g"                                        	; Home X axis to the starboard by stallguard
 
-M98 P"/macros/home_z_max"                                    ; Home Z at the bottom independently by stallguard
-M98 P"/sys/homey.g"                                          ; Home Y axis in the front by stallguard
-M98 P"/sys/homex.g"                                          ; Home X axis to the starboard by stallguard
-G1 X255 Y0                                                   ; Move head to front center
+; filaments
+M703 														; update filament spoolweight at startup
