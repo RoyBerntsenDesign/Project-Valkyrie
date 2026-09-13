@@ -4,9 +4,9 @@ var Xbucket_position = ((move.axes[1].max/ 2) +89) ; postion of dock from centre
 var Ybucket_position = ((move.axes[0].max/ 2)-185) ; postion of dock from centre of bed Y axis
 echo var.Xbucket_position ,var.Ybucket_position    ; display distances
 var Xbrush_distance = 45                           ; distance from park to brush and back
-var wipe_distance = 20                             ; distance from park to wipe and back
-var number_wipes_brush = 4                           ; wipe nozzel with brush  x times 
-var number_wipes_silicone = 4                        ; wipe nozzel with silicon  x times 
+var wipe_distance = 10                             ; distance from park to wipe and back
+var number_wipes_brush = 3                           ; wipe nozzel with brush  x times 
+var number_wipes_silicone = 2                        ; wipe nozzel with silicon  x times 
 var speed1 = 20000                                  ; speed 1
 var speed2 = 15000                                  ; speed 2
 

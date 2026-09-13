@@ -1,0 +1,10 @@
+; --- CHECK PROBE K1 ---
+while true
+  if sensors.probes[1].value [0] == 0
+    break ; K1 is clear, exit this loop
+  else
+  ; K1 is stuck, prompt the user
+  M291 P"Probe K1 is stuck! Clear the probe and press OK to retry, or Cancel to abort." R"Probe Error" S3
+  ; If Cancel is pressed, the line below will not run because S=3 aborts the macro on Cancel.
+
+echo "Success: K1 verified clear. Continuing print..."
