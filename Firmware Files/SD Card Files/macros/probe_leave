@@ -1,11 +1,9 @@
-echo "probe_leave"
-var Xdock_center = 36
-var Ydock_center = -17.5
+var Xdock_center = 31
+var Ydock_center = -15
 
-M564 S0                                           ;  S1 = limit movement within axis boundaries, S0 = allow movement outside boundaries
 if sensors.probes[0].value[0]!=1000               ; if sensor is value other than 1000 do this
-	G1 X{move.axes[0].min + var.Xdock_center} F18000 ; X position of flint zone
-	G1 Y{move.axes[1].min + var.Ydock_center} F18000 ; Y position of flint zone  
-	G1 X 70 F5000
-	G1 Y30 F18000
-M564 S1
+	G1 X{var.Xdock_center} F30000 					; X position of flint zone
+	G1 Y{var.Ydock_center} F18000 					; Y position of flint zone  
+	G1 X 70 F6000 ; move slowly out to leave the probe
+M98 P"/macros/probe_center"         ; move probe to bed center
+M400                                ; wait for moves to finish

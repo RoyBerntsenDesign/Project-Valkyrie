@@ -1,4 +1,4 @@
-; --- CHECK PROBE K1 ---
+; --- CHECK NOZZLE PROBE K1 ---
 while true
   if sensors.probes[1].value [0] == 0
     break ; K1 is clear, exit this loop
