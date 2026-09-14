@@ -1,26 +1,33 @@
-;called to brush the nozzle
-G90                                              ; set absolute coordinates
-var Xbucket_position = ((move.axes[0].max/2)+80) ; postion of bucket end from centre of bed x axis
-var Ybucket_position = ((move.axes[1].min)+1)    ; postion of brush from Y axis minima
-var Xbrush_distance = 45                         ; distance from park to brush and back
-var number_brush = 10                            ; brush nozzel x times 
-var speed1 = 30000                               ; speed 1
-var speed2 = 12000                               ; speed 2
+; called to brush the nozzle
 
-;~~~~~~~~~~~do not alter anything below this line ~~~~~~~~~~~~~~~~
-if sensors.probes[0].value[0]==0                 ; if sensor is value other than 1000 do this, 0 = probe attached
-	echo "Probe needs dropping  off"
-	M98 P"/macros/probe_leave" 
-G1 F{var.speed1}                                 ; set move speed
-G1 Y{var.Ybucket_position}                       ; move to bucket y postition
-G1 X{var.Xbucket_position}                       ; move to bucket x postition
-M400                                             ; wait to moves finished
-G91                                              ; set to relative coordinates
+G90                                               ; use absolute coordinates
+
+var Xbucket_position = (move.axes[0].max / 2) + 80 ; bucket position from bed center on X
+var Ybucket_position = move.axes[1].min + 1         ; brush position near Y minimum
+var Xbrush_distance = 45                            ; brushing travel distance
+var number_brush = 10                               ; number of brush cycles
+var speed1 = 30000                                  ; positioning speed
+var speed2 = 12000                                  ; brushing speed
+
+;~~~~~~~~~~~ do not alter anything below this line ~~~~~~~~~~~~~~~
+
+if sensors.probes[0].value[0] == 0                 ; 0 = probe attached
+    echo "Probe needs dropping off"
+    M98 P"/macros/probe_leave"
+
+G1 F{var.speed1}
+G1 Y{var.Ybucket_position}                          ; move to brush Y position
+G1 X{var.Xbucket_position}                          ; move to brush X position
+M400                                                ; wait until positioning moves are complete
+
+G91                                                ; use relative coordinates
+
 while true
-    if iterations = var.number_brush             ; brush x number of times
+    if iterations == var.number_brush
         break
-    G1 F{var.speed2}                             ; set brushing speed
-    G1 X{var.Xbrush_distance}                    ; move to end of brush
-    G1 X{-var.Xbrush_distance}                   ; move to start of brush
-; end loop
-G90                                              ; reset to absolute coordinates
+
+    G1 F{var.speed2}
+    G1 X{var.Xbrush_distance}                       ; move across brush
+    G1 X{-var.Xbrush_distance}                      ; move back across brush
+
+G90                                                ; return to absolute coordinates

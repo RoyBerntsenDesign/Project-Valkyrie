@@ -1,9 +1,14 @@
-; called to park the nozzle over bucket
-G90                                              ; set absolute coordinates
-var Xbucket_position = ((move.axes[0].max/2)+80) ; postion of bucket end from centre of bed x axis
-var Ybucket_position = ((move.axes[1].min)+1)    ; postion of brush from Y axis minima
-;~~~~~ do not change anything below ~~~~~
-if sensors.probes[0].value[0]==0                   ; if sensor is value >0 probe not attached, 0 = probe attached
-    M98 P"/macros/probe_leave" 
-G1 X{var.Xbucket_position} F24000                  ; move between wiper on bucket
-G1 Y{var.Ybucket_position} F24000                  ; move between wiper on bucket
+; called to park the nozzle over the purge bucket
+
+G90                                                ; use absolute coordinates
+
+var Xbucket_position = (move.axes[0].max / 2) + 80 ; bucket X position
+var Ybucket_position = move.axes[1].min + 1         ; bucket Y position
+
+;~~~~~ do not change anything below this line ~~~~~
+
+if sensors.probes[0].value[0] == 0                 ; 0 = probe attached
+    M98 P"/macros/probe_leave"                     ; drop off probe
+
+G1 X{var.Xbucket_position} F24000                   ; move to bucket X position
+G1 Y{var.Ybucket_position} F24000                   ; move to bucket Y position

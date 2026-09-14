@@ -1,10 +1,15 @@
-; home the triple Z axis independently on the high end (bottom)
-G91                             ; relative positioning
-M915 P0.3:0.4:0.5 S4 H400 F0 R0 ; configure Z-Axis Stall Detection
-M574 Z2 S4                      ; Configure Z-Axis stall detection homing ???
-M906 Z500                       ; set homing motor current
-G1 H1 Z350 F3000                ; Home 3Z axis high
-M400                            ; make sure everything has stopped before we make changes
-G90                             ; absolute positioning
-M906 Z800                       ; reset z motor current
-M915 P3:4:5 S20 H500 F0 R1      ; reset stall Detection less sensetive
+; home all three Z axes independently at Z maximum
+
+G91                              ; use relative positioning
+
+M915 P0.3:0.4:0.5 S4 H400 F0 R0 ; configure Z-axis stall detection for homing
+M574 Z2 S4                       ; home Z toward the high end using stall detection
+M906 Z500                        ; set Z homing motor current
+
+G1 H1 Z350 F3000                 ; home all three Z motors independently
+M400                             ; wait until homing motion has fully finished
+
+G90                              ; return to absolute positioning
+
+M906 Z800                        ; restore normal Z motor current
+M915 P0.3:0.4:0.5 S20 H500 F0 R1 ; restore normal Z stall detection

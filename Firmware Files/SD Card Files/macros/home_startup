@@ -1,7 +1,5 @@
 ; called on machine startup
-M98 P"/macros/home_z_max" ; home all 3 Z axis independently at the bottom (z high)
-M400                      ; wait for moves to finish
-M98 P"/sys/homey.g"       ; home y axis
-M400                      ; wait for everything to finish
-M98 P"/sys/homex.g"       ; home x axis
-M400                      ; wait for everything to finish
+
+M98 P"/macros/home_z_max"  ; home all 3 Z axes independently at Z maximum
+M98 P"/sys/homey.g"        ; home Y axis
+M98 P"/sys/homex.g"        ; home X axis

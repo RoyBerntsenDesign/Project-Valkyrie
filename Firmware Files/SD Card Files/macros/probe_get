@@ -1,16 +1,19 @@
-; runs when the probe_get macro is called
-G90                              ; set absolute coordinates
-;~~~~~ set offset variables for the docking stattion ~~~~~
-var Xdock_center = 31            ; set docking station X center posistion
-var Ydock_center = -15           ; set docking station Y center posistion
+; called when the probe_get macro is executed
+
+G90                                 ; use absolute coordinates
+
+;~~~~~ probe dock position ~~~~~
+var Xdock_center = 31               ; probe dock X center position
+var Ydock_center = -15              ; probe dock Y center position
 
 ;~~~~~ pick up probe if not attached ~~~~~
-if sensors.probes[0].value[0]==0 ; if sensor is value other than 1000 do this, 0 = probe attached
-	echo "Probe already picked up"  ; message on DWC
-else                             ; pick up probe
-	G1 Y{move.axes[1].max/2} F30000 ; Move printhead to a safe position  
-	G1 X{var.Xdock_center} F30000   ; X position of flint zone
-	G1 Y{var.Ydock_center} F18000   ; Y position of flint zone
-	G1 Y10 F18000                   ; slide probe out of dock - slowly
-M98 P"/macros/probe_center"      ; move probe to bed center
-M400                             ; wait for moves to finish
+if sensors.probes[0].value[0] == 0  ; 0 = probe attached
+    echo "Probe already picked up"  ; message in DWC
+else
+    G1 Y{move.axes[1].max / 2} F30000 ; move to safe Y position
+    G1 X{var.Xdock_center} F30000      ; move to probe dock X position
+    G1 Y{var.Ydock_center} F18000      ; move into probe dock
+    G1 Y10 F18000                      ; slide probe out of dock
+
+M98 P"/macros/probe_center"         ; move probe to bed center
+M400                                ; wait until all positioning moves are complete
