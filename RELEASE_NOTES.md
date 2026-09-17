@@ -109,10 +109,10 @@ The released firmware configuration is based on the tested reference machine. Ma
 
 | Performance | Verified |
 | --- | ---: |
-| Maximum print speed | 200 mm/s |
+| Maximum print speed | 1,000 mm/s |
 | Maximum acceleration | 10,000 mm/s² |
-| Maximum volumetric flow rate | 20 mm³/s |
-| Maximum travel speed | 500 mm/s |
+| Maximum volumetric flow rate | 45 mm³/s |
+| Maximum travel speed | 1,000 mm/s |
 | Chamber heat-up | 30 min to 100 °C from 25 °C ambient |
 | Drybox temperature | Up to 80 °C |
 
@@ -120,11 +120,9 @@ The released firmware configuration is based on the tested reference machine. Ma
 
 | Performance | Target |
 | --- | ---: |
-| Maximum print speed | 500 mm/s |
-| Maximum acceleration | 20,000 mm/s² |
-| Maximum volumetric flow rate | 30 mm³/s |
-| Maximum travel speed | 1,000 mm/s |
 | Active chamber temperature | Up to 120 °C |
+
+No higher development targets are currently defined for print speed, acceleration, volumetric flow rate, or travel speed.
 
 ## Electrical configurations
 
