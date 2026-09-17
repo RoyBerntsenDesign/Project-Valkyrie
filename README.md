@@ -111,6 +111,32 @@ Performance depends on material, nozzle, toolhead configuration, cooling, firmwa
 - RepRapFirmware and Duet Web Control.
 - Input shaping, pressure advance, automatic Z alignment, mesh compensation, thermal monitoring, and configurable print-start and print-end sequences.
 
+## Firmware
+
+Valkyrie V2 uses RepRapFirmware and Duet Web Control on the Duet 3 6HC.
+
+The tested Valkyrie V2 firmware configuration is included in this repository:
+
+[Open Valkyrie V2 SD Card Files](Firmware%20Files/SD%20Card%20Files)
+
+The supplied firmware package contains:
+
+- `sys` – RepRapFirmware configuration, homing, system and safety files
+- `macros` – Valkyrie-specific probing, calibration, nozzle and utility macros
+- `filaments` – material-specific filament configuration, load and unload files
+
+These files are configured for the Valkyrie V2 reference machine and should be used as the basis for the printer firmware setup.
+
+### Firmware upgrades
+
+For RepRapFirmware and Duet firmware upgrade procedures, follow the Valkyrie firmware upgrade guide:
+
+[Valkyrie Firmware Upgrade Guide](https://docs.google.com/document/d/1ZG3JhbeEWcIs_WRdMjnoR0Aa20OJ4TtpdeJnv2xmSmU/edit?usp=sharing)
+
+Back up the SD card before making firmware or configuration changes.
+
+Machine-specific settings such as input shaping, probe offsets and filament profiles may require adjustment on individual builds.
+
 ## Material validation
 
 Validated on the current prototype:
