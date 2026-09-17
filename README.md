@@ -49,14 +49,14 @@ The online model includes the latest public design and allows you to inspect the
 
 | Performance | Verified | Target |
 | --- | ---: | ---: |
-| Maximum print speed | 200 mm/s | 500 mm/s |
-| Maximum acceleration | 10,000 mm/s² | 20,000 mm/s² |
-| Maximum volumetric flow rate | 20 mm³/s | 30 mm³/s |
-| Maximum travel speed | 500 mm/s | 1,000 mm/s |
+| Maximum print speed | 1,000 mm/s | — |
+| Maximum acceleration | 10,000 mm/s² | — |
+| Maximum volumetric flow rate | 45 mm³/s | — |
+| Maximum travel speed | 1,000 mm/s | — |
 | Chamber heat-up | 30 min to 100 °C from 25 °C ambient | 30 min or less to 100 °C |
 | Drybox temperature | Up to 80 °C | Up to 80 °C |
 
-Performance depends on material, nozzle, toolhead configuration, cooling, firmware settings, and operating temperature. Target values are development goals rather than guaranteed operating specifications.
+Performance depends on material, nozzle, toolhead configuration, cooling, firmware settings, and operating temperature. A dash indicates that no higher development target is currently defined for that parameter.
 
 ## Design overview
 
