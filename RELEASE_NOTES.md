@@ -89,14 +89,21 @@ This release separates verified prototype performance from development targets. 
 ### Firmware and automation
 
 - RepRapFirmware with Duet Web Control.
-- Input shaping and pressure advance.
+- Tested Valkyrie V2 `sys`, `macros`, and `filaments` configuration supplied in the repository.
+- Input shaping measured and configured on the reference machine.
+- Pressure advance support.
 - Independent three-motor Z alignment.
 - Mesh-bed compensation.
+- Automated probe pickup and return.
 - Automated nozzle-height and Z-offset measurement.
 - Automated nozzle brushing.
-- Automated filament loading and unloading through the external buffer.
-- Configurable print-start and print-end sequences.
+- Material-specific filament loading and unloading through Duet Web Control and the external filament buffer.
+- Tested print-start, pause/resume, cancel, and normal print-finish workflows.
+- Chamber temperature ramping for controlled heat-up.
+- Chamber recirculation-fan monitoring with automatic chamber-heater shutdown on fan fault.
 - Firmware temperature limits, heating timeouts, sensor-fault handling, and automatic heater shutdown.
+
+The released firmware configuration is based on the tested reference machine. Machine-specific values such as input shaping, probe offsets, filament profiles, and other tuning parameters may require adjustment on individual builds.
 
 ## Verified prototype performance
 
@@ -142,6 +149,8 @@ PSU, PPSU, PEI (Ultem), and PEKK remain to be verified.
 ## Documentation
 
 - [Valkyrie V2 Technical Overview v1.0](docs/Valkyrie_V2_Technical_Overview_v1.0.pdf)
+- [Valkyrie V2 SD Card Files](Firmware%20Files/SD%20Card%20Files)
+- [Valkyrie Firmware Upgrade Guide](https://docs.google.com/document/d/1ZG3JhbeEWcIs_WRdMjnoR0Aa20OJ4TtpdeJnv2xmSmU/edit?usp=sharing)
 
 The technical overview is not an assembly manual or electrical wiring guide.
 
