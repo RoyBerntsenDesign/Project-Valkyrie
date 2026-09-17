@@ -1,0 +1,187 @@
+; ============================================================================
+; Valkyrie V2 / - RepRapFirmware configuration
+; Duet 3
+; ============================================================================
+
+; ---------------------------------------------------------------------------
+; General
+; ---------------------------------------------------------------------------
+G90                                                         ; use absolute axis coordinates
+M83                                                         ; use relative extruder moves
+M550 P"Valkyrie V2"                                         ; set printer name
+M669 K1                                                     ; select CoreXY kinematics
+
+; ---------------------------------------------------------------------------
+; Network
+; ---------------------------------------------------------------------------
+M552 S1                                                     ; enable network and acquire address via DHCP
+M586 P0 S1                                                  ; enable HTTP
+M586 P1 S0                                                  ; disable FTP
+M586 P2 S0                                                  ; disable Telnet
+
+; ---------------------------------------------------------------------------
+; Drives and motion
+; ---------------------------------------------------------------------------
+; Drive directions
+M569 P0.0 S0                                                ; X/Y motor A - backwards
+M569 P0.1 S0                                                ; X/Y motor B - backwards
+M569 P0.2 S1                                                ; extruder - forwards
+M569 P0.3 S0                                                ; Z1 - backwards
+M569 P0.4 S1                                                ; Z2 - forwards
+M569 P0.5 S0                                                ; Z3 - backwards
+
+; Drive mapping
+M584 X0.0 Y0.1 E0.2 Z0.3:0.4:0.5                            ; map X, Y, E and three independent Z drives
+
+; Microstepping
+M350 X16 Y16 I1                                             ; X/Y: 16x microstepping with interpolation
+M350 Z16 E16 I0                                             ; Z/E: 16x microstepping without interpolation
+
+; Steps, speeds and acceleration
+M92 X100.00 Y100.00 Z400.00 E932.00                         ; steps per mm
+M566 X600.00 Y600.00 Z600.00 E600.00                        ; maximum instantaneous speed changes (mm/min)
+M203 X90000.00 Y90000.00 Z1500.00 E9000.00                  ; maximum speeds (mm/min)
+M201 X10000.00 Y10000.00 Z600.00 E10000.00                  ; accelerations (mm/s^2)
+
+; Motor currents
+M906 X1750 Y1750 E900 I30                                   ; X/Y/E motor currents, 30% idle-current factor
+M906 Z800 I70                                               ; Z motor current, 70% idle-current factor
+M84 S30                                                     ; motor idle timeout (seconds)
+
+; ---------------------------------------------------------------------------
+; Axis limits
+; ---------------------------------------------------------------------------
+M208 X-3 Y-35 Z-5 S1                                        ; axis minima
+M208 X330 Y300 Z275 S0                                      ; axis maxima
+
+; ---------------------------------------------------------------------------
+; Endstops and sensorless homing
+; ---------------------------------------------------------------------------
+M574 X1 S3                                                  ; X homes to low end using sensorless homing
+M574 Y1 S3                                                  ; Y homes to low end using sensorless homing
+M574 Z2 S4                                                  ; Z homes to high end using sensorless homing
+
+M915 P0.0:0.1 S3 F0 R0                                      ; default X/Y StallGuard settings for sensorless homing
+M915 P0.3:0.4:0.5 S4 F0 R0                                  ; default Z1/Z2/Z3 StallGuard settings for sensorless homing
+
+; ---------------------------------------------------------------------------
+; Three-point Z geometry
+; ---------------------------------------------------------------------------
+M671 X0:330:165 Y-8.5:-8.5:321.5 S15                        ; Z lift points: front-left, front-right, rear-center
+
+; ---------------------------------------------------------------------------
+; Z probes and bed mesh
+; ---------------------------------------------------------------------------
+M558 K0 P5 C"^io3.in" H10:5 F1500:300 T30000 A10 S0.025     ; removable bed probe settings
+M558 K1 P8 C"^io4.in" H10:5 F1500:300 T30000 A10 S0.025     ; nozzle/tool switch probe settings
+
+G31 K0 P500 X0 Y-19 Z0                                      ; removable probe trigger and offset
+G31 K1 P500 X0 Y0 Z0                                        ; nozzle/tool switch trigger and offset
+
+M557 X10:310 Y0:280 S60:56                                  ; bed mesh area and spacing
+
+; ---------------------------------------------------------------------------
+; Heaters and temperature sensors
+; ---------------------------------------------------------------------------
+
+; Heated bed
+M308 S0 P"temp3" Y"thermistor" T100000 B3950 A"Bed T°C"     ; bed temperature sensor
+M950 H0 C"out9" T0                                          ; bed heater output mapped to sensor 0
+M140 H0                                                     ; map heated bed to heater 0
+M143 H0 S150                                                ; bed heater temperature limit: 150C
+M307 H0 R1.177 K0.810:0.000 D4.88 E1.35 S1 B0               ; bed heater tuning parameters
+
+; Hotend
+M308 S1 P"temp0" Y"pt1000" A"Hotend T°C"                    ; hotend PT1000 sensor
+M950 H1 C"out1" T1                                          ; hotend heater output mapped to sensor 1
+M143 H1 S450                                                ; hotend temperature limit: 450C
+M307 H1 R2.651 K0.222:0.000 D5.73 E1.35 S1.00 B0 V23.2      ; hotend heater tuning parameters
+
+; Heated chamber
+M308 S2 P"temp2" Y"thermistor" T100000 B3950 A"Chamber T°C" ; chamber temperature sensor
+M950 H2 C"out8" T2                                          ; chamber heater output mapped to sensor 2
+M307 H2 R0.25 K0.25:0.000 D11 E1.35 S1.00 B1                ; chamber heater tuning parameters
+M570 H2 P60 T15 R5                                          ; chamber heater fault detection parameters
+M141 H2 P0                                                  ; map chamber 0 to heater 2
+M143 H2 S125                                                ; chamber heater temperature limit: 125C
+
+; Heated drybox / chamber 1
+M308 S3 P"io2.out" Y"dht22" A"dbx Temp[C]"                  ; drybox DHT22 temperature sensor
+M308 S4 P"S3.1" Y"dhthumidity" A"drybox Hum[%]"             ; drybox DHT22 humidity sensor
+M950 H3 C"out7" T3                                          ; drybox heater output mapped to sensor 3
+M141 H3 P1                                                  ; map chamber 1 to heater 3
+M143 H3 S80                                                 ; drybox heater temperature limit: 80C
+M307 H3 R0.25 K0.25:0.000 D11 E1.35 S1.00 B0                ; drybox heater tuning parameters
+
+; ---------------------------------------------------------------------------
+; GPIO / power outputs
+; ---------------------------------------------------------------------------
+M950 P6 C"out0"                                             ; configure out0 as GPIO output for 12V supply
+M42 P6 S1                                                   ; enable 12V supply
+
+; ---------------------------------------------------------------------------
+; Fans and water pump
+; ---------------------------------------------------------------------------
+
+; CPAP part-cooling fan - 12V
+M950 F0 C"io5.out" Q2000                                    ; fan 0 on io5.out
+M106 P0 S0 H-1 C"CPAP Fan" B1 L0.1 X0.6                     ; CPAP fan, non-thermostatic
+
+; Chamber circulation fan - 12V
+M950 F1 C"!out6+out6.tach" Q25000                           ; fan 1 with tachometer
+M106 P1 S0 H-1 C"Chamber Fan"                               ; chamber fan, non-thermostatic
+
+; Drybox fan - 24V
+M950 F2 C"!out5+out5.tach" Q25000                           ; fan 2 with tachometer
+M106 P2 S0 H-1 C"Drybox Fan"                                ; drybox fan, non-thermostatic
+
+; CPAP PCB fan - 24V
+M950 F3 C"out2" Q25000                                      ; fan 3 on out2
+M106 P3 S0 H-1 C"PCB Fan"                                   ; PCB fan, non-thermostatic
+
+; Water pump - 12V
+M950 F4 C"!out4+out4.tach" Q250                             ; fan 4 on inverted out4 with tachometer
+M106 P4 S1 H1 T50 C"Water Pump"                             ; water pump controlled from hotend heater temperature
+
+; ---------------------------------------------------------------------------
+; Tool
+; ---------------------------------------------------------------------------
+M563 P0 D0 H1 F0                                            ; define tool 0: extruder 0, heater 1, fan 0
+G10 P0 X0 Y0 Z0                                             ; tool 0 axis offsets
+G10 P0 R0 S0                                                ; initial standby and active temperatures: 0C
+T0                                                          ; select tool 0
+
+; ---------------------------------------------------------------------------
+; Input shaping / accelerometer
+; ---------------------------------------------------------------------------
+
+; M955 P0 C"spi.cs1+spi.cs0" I54 S1600                      ; accelerometer connection for LIS3DSH
+M593 P"mzv" F46.0                                           ; input shaping settings
+
+; ---------------------------------------------------------------------------
+; Mellow filament buffer
+; ---------------------------------------------------------------------------
+
+; Retract status input
+M950 J3 C"io7.in"                                           ; detect buffer retract status
+M581 T6 R0 P3 S0                                            ; configure external trigger 6 for retract button
+M582 T6 S0                                                  ; check external trigger 6
+
+; Filament feed output
+M950 P13 C"!io8.out"                                        ; buffer feed output
+M42 P13 S0                                                  ; feed output off
+
+; Filament retract output
+M950 P14 C"!io7.out"                                        ; buffer retract output
+M42 P14 S0                                                  ; retract output off
+
+; Filament monitor
+M591 P1 C"io8.in" S1 D0                                     ; filament monitor
+
+; ---------------------------------------------------------------------------
+; Startup files and macros
+; ---------------------------------------------------------------------------
+
+M98 P"/sys/globals.g"                                       ; load global variables
+M703                                                        ; autoload previous filament/spool configuration
+M98 P"/macros/home_startup.g"                               ; independently home Z at startup using StallGuard

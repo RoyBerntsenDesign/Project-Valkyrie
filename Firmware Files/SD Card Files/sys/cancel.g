@@ -1,15 +1,21 @@
 ; cancel.g
-; called when cancelling a print mid-print
+; called after a paused print is cancelled
+; pause.g has already retracted, cleared the print and parked the nozzle
 
-M98 P"/macros/nozzle_park"   ; move nozzle to purge bucket
-G1 E-3 F1800                 ; retract filament 3 mm
-G1 Z{move.axes[2].max}       ; move bed to Z maximum
-M400                         ; wait for all movement to finish
+;~~~~~ shut down heaters and cooling ~~~~~
 
-M104 S0                      ; turn off hotend heater
-M140 S0                      ; turn off bed heater
-M106 P0 S0                   ; turn off part cooling fan
-M141 P0 R0                   ; turn off chamber heater
+M104 S0                                  ; turn off hotend heater
+M140 S0                                  ; turn off bed heater
+M106 P0 S0                               ; keep part cooling / CPAP fan off
+M141 P0 S-273.1 R0                       ; turn off chamber and clear stored ramp target
 
-G4 P3000                     ; wait 3 seconds for nozzle to ooze
-M98 P"/macros/nozzle_brush"  ; brush nozzle and park
+;~~~~~ move bed fully away ~~~~~
+
+G90                                      ; use absolute positioning
+G1 Z{move.axes[2].max} F1500             ; move bed fully down
+M400                                     ; wait for Z move to finish
+
+;~~~~~ clean nozzle ~~~~~
+
+G4 P3000                                 ; allow remaining ooze to fall into bucket
+M98 P"/macros/nozzle_brush.g"            ; clean nozzle

@@ -1,19 +1,18 @@
 ; called to home the Y axis
-M400                                                 ; Ensure previous motion has finished
-G91                                                  ; Relative positioning
 
-M915 P0.0:0.1 S2 H200 F0 R0                          ; Homing stall detection
-M906 X800 Y800                                       ; Homing motor current
+M400                                  ; wait for previous motion to finish
+G91                                   ; use relative positioning
 
-G1 F3000                                             ; Set homing speed
-G1 H1 Y-350                                          ; Home Y
+M915 P0.0:0.1 S2 H200 F0 R0          ; set StallGuard for homing
+M906 X800 Y800                        ; set homing motor current
 
-M400                                                 ; Wait until homing move is completely finished
+G1 H1 Y-350 F3000                     ; home Y toward low end
 
-G90                                                  ; Absolute positioning
+M400                                  ; wait until homing move has finished
 
-; Restore normal motor settings
-M906 X{move.axes[0].current} Y{move.axes[1].current} ; reset motor current
-M915 P0.0:0.1 S35 H500 F0 R1
+G90                                   ; return to absolute positioning
 
-G1 Y{move.axes[1].max/2} F30000
+M906 X1750 Y1750                      ; restore normal X/Y motor current
+M915 P0.0:0.1 S35 H500 F0 R1         ; restore normal StallGuard settings
+
+G1 Y{move.axes[1].max / 2} F30000     ; move Y to center

@@ -1,0 +1,29 @@
+; chamber_ramp
+; gradually increases chamber temperature in 5C steps
+; active temperature = current ramp step
+; standby temperature = final requested chamber target
+
+var heater = 2                                              ; chamber heater number
+var chamber = 0                                             ; chamber number used by M141
+var step = 5                                                ; temperature increase per ramp step
+var tolerance = 3                                           ; allowed difference before advancing to next step
+
+var target = heat.heaters[var.heater].standby               ; final requested chamber temperature
+var current_setpoint = heat.heaters[var.heater].active      ; current active chamber target
+var current_temp = heat.heaters[var.heater].current         ; actual chamber temperature
+
+;~~~~~ stop if no final target is stored ~~~~~
+
+if var.target <= 0
+    exit
+
+;~~~~~ stop if final target has already been reached ~~~~~
+
+if var.current_setpoint >= var.target
+    exit
+
+;~~~~~ increase target when chamber is close to current step ~~~~~
+
+if var.current_temp >= var.current_setpoint - var.tolerance
+    var next = min(var.current_setpoint + var.step, var.target)   ; calculate next step without exceeding final target
+    M141 P{var.chamber} S{var.next} R{var.target}                 ; apply next step and preserve final target
