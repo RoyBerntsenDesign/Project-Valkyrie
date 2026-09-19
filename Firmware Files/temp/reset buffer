@@ -1,0 +1,3 @@
+M42 P13 S1                                                                                      ; small feed of filament to get over friction short pulse
+G4 P500                                                                                         ; Dwell S= seconds P = milliseconds
+M42 P13 S0 
