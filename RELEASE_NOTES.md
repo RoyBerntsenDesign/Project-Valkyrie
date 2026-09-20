@@ -119,11 +119,7 @@ The released firmware configuration is based on the tested reference machine. Ma
 
 ## Development targets
 
-| Performance | Target |
-| --- | ---: |
-| Active chamber temperature | Up to 120 °C |
-
-No higher development targets are currently defined for print speed, acceleration, volumetric flow rate, or travel speed.
+No higher chamber-temperature target is currently defined. The present verified chamber specification is up to 110 °C.
 
 ## Electrical configurations
 
