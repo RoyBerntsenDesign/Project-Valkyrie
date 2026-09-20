@@ -113,7 +113,8 @@ The released firmware configuration is based on the tested reference machine. Ma
 | Maximum acceleration | 10,000 mm/s² |
 | Maximum volumetric flow rate | 45 mm³/s |
 | Maximum travel speed | 1,000 mm/s |
-| Chamber heat-up | 30 min to 100 °C from 25 °C ambient |
+| Chamber heat-up | 25 min to 100 °C from 23 °C ambient |
+| Sustained chamber temperature | 110 °C for 60 min |
 | Drybox temperature | Up to 80 °C |
 
 ## Development targets
