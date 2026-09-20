@@ -7,7 +7,13 @@ M141 P0 S0 R{chamber_temperature[0]}        ; store final chamber target for cha
 M140 S{first_layer_bed_temperature[0]}      ; set bed temperature
 M104 S{first_layer_temperature[0]}          ; set hotend temperature
 
-M191 P0 S{chamber_minimal_temperature[0]}   ; wait for minimum chamber temperature
+;~~~~~ move bed to chamber preheat position ~~~~~
+
+G90
+G1 Z100 F3000
+M400
+
+M98 P"/macros/wait_chamber_min.g" S{chamber_minimal_temperature[0]}   ; wait for minimum chamber temperature
 M190 S{first_layer_bed_temperature[0]}      ; wait for bed temperature
 M109 S{first_layer_temperature[0]}          ; wait for hotend temperature
 
