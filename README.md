@@ -37,7 +37,7 @@ The online model includes the latest public design and allows you to inspect the
 | Hotend | Custom water-cooled Valkyrie high-temperature hotend |
 | Maximum nozzle temperature | Up to 500 °C |
 | Maximum build-plate temperature | Up to 150 °C |
-| Active chamber | 110 °C verified, 120 °C target |
+| Active chamber | Up to 110 °C verified |
 | Chamber heater | 750 W PTC heater, configured as RRF Chamber 1 |
 | Drybox heater | 300 W PTC heater, configured as RRF Chamber 2 |
 | Controller | Duet 3 6HC |
@@ -54,7 +54,7 @@ The online model includes the latest public design and allows you to inspect the
 | Maximum volumetric flow rate | 45 mm³/s | — |
 | Maximum travel speed | 1,000 mm/s | — |
 | Chamber heat-up | 25 min to 100 °C from 23 °C ambient | 30 min or less to 100 °C |
-| Sustained chamber temperature | 110 °C for 60 min | 120 °C target |
+| Sustained chamber temperature | 110 °C for 60 min | — |
 | Drybox temperature | Up to 80 °C | Up to 80 °C |
 
 Performance depends on material, nozzle, toolhead configuration, cooling, firmware settings, and operating temperature. A dash indicates that no higher development target is currently defined for that parameter.
