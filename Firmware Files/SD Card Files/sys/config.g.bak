@@ -137,7 +137,7 @@ M106 P2 S0 H-1 C"Drybox Fan"                                      ; drybox fan, 
 
 ; CPAP PCB fan - 24V
 M950 F3 C"out2" Q25000                                            ; fan 3 on out2
-M106 P3 S1 H2 T50 C"PCB Fan"                                      ; PCB fan, non-thermostatic
+M106 P3 S0 H-1 C"PCB Fan"                                         ; PCB fan, non-thermostatic
 
 ; Water pump - 12V
 M950 F4 C"!out4+out4.tach" Q250                                   ; fan 4 on inverted out4 with tachometer

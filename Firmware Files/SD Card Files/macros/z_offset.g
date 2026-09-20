@@ -1,8 +1,8 @@
 ; simple sequence to set Z offset
 
 var avg = 0                                                           ; average K0 probe result
-var k0_offset = 4                                                     ; anvil is 4 mm in front of Y minimum
-var k1_offset = 0.5                                                   ; safety distance behind Y minimum
+var k0_offset = 3.5                                                   ; anvil is 4 mm in front of Y minimum
+var k1_offset = 0.0                                                   ; safety distance behind Y minimum
 
 
 ;~~~~~ step 1 - pick up probe and establish bed reference ~~~~~
@@ -58,7 +58,10 @@ M400
 M98 P"/macros/nozzle_brush.g"                                         ; brush nozzle
 
 
-;~~~~~ step 5 - probe nozzle on tool switch ~~~~~
+;~~~~~ step 5 - release and probe nozzle on tool switch ~~~~~
+
+M98 P"/macros/nozzle_probe_release.g"                                 ; make sure K1 is released
+M400
 
 G1 X{move.axes[0].max / 2} Y{move.axes[1].min + var.k1_offset} F18000 ; move nozzle to K1 probe position
 

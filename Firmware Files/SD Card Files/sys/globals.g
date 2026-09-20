@@ -9,6 +9,7 @@ if !exists(global.logCounter)
 if !exists(global.start_uptime)
     global start_uptime = 0
 
+
 ;~~~~~ spool / filament globals ~~~~~
 
 if !exists(global.spoolWeight)
@@ -17,7 +18,21 @@ if !exists(global.spoolWeight)
 if !exists(global.filamentWeight)
     global filamentWeight = 0
 
+
 ;~~~~~ chamber fan safety global ~~~~~
 
 if !exists(global.chamberFanFaultCounter)
     global chamberFanFaultCounter = 0
+
+
+;~~~~~ chamber ramp globals ~~~~~
+
+if !exists(global.chamberRampActive)
+    global chamberRampActive = false
+
+if !exists(global.chamberSavedBedTarget)
+    global chamberSavedBedTarget = 0
+
+;~~~~~ pause/resume globals ~~~~~
+if !exists(global.pauseFan0Speed)
+    global pauseFan0Speed = 0

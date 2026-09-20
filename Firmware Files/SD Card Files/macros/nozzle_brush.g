@@ -12,8 +12,8 @@ var speed2 = 18000
 if sensors.probes[0].value[0] != 1000
     M98 P"/macros/probe_leave.g"
 
-G1 Y{var.Ybucket_position} F{var.speed1}
-G1 X{var.Xbucket_position} F{var.speed1}
+G1 Y{var.Ybucket_position} X{var.Xbucket_position} F{var.speed1} ; move to bucket
+; G1 X{var.Xbucket_position} F{var.speed1}
 M400
 
 G91

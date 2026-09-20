@@ -4,7 +4,11 @@
 M83                             ; use relative extrusion
 G1 E-5 F3600                    ; retract 5 mm of filament
 
-M106 P0 S0                      ; turn off part cooling / CPAP fan
+; save current CPAP fan speed
+set global.pauseFan0Speed = fans[0].requestedValue
+
+; turn off CPAP fan during pause
+M106 P0 S0
 
 ;~~~~~ increase clearance from print ~~~~~
 
