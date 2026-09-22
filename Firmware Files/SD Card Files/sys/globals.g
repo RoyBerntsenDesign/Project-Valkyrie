@@ -25,14 +25,6 @@ if !exists(global.chamberFanFaultCounter)
     global chamberFanFaultCounter = 0
 
 
-;~~~~~ chamber ramp globals ~~~~~
-
-if !exists(global.chamberRampActive)
-    global chamberRampActive = false
-
-if !exists(global.chamberSavedBedTarget)
-    global chamberSavedBedTarget = 0
-
 ;~~~~~ pause/resume globals ~~~~~
 if !exists(global.pauseFan0Speed)
     global pauseFan0Speed = 0
