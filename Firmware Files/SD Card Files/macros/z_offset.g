@@ -1,7 +1,7 @@
 ; simple sequence to set Z offset
 
 var avg = 0                                                           ; average K0 probe result
-var k0_offset = 3.5                                                   ; anvil is 4 mm in front of Y minimum
+var k0_offset = 3.5                                                   ; anvil is x mm in front of Y minimum
 var k1_offset = 0.0                                                   ; safety distance behind Y minimum
 
 

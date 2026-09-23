@@ -5,8 +5,7 @@
 ; != 0  = needs releasing
 ;
 ; Uses the calibrated trigger height of probe 1
-; and presses 0.5 mm below it, then retracts
-; 0.5 mm above it.
+; and presses 0.5 mm below it, then retracts 1 mm above it.
 ;
 ; Maximum 3 attempts.
 
