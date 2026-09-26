@@ -8,7 +8,7 @@
 ; ---------------------------------------------------------------------------
 G90                                                               ; use absolute axis coordinates
 M83                                                               ; use relative extruder moves
-M550 P"Valkyrie V2"                                               ; set printer name
+M550 P"Valkyrie_V2"                                               ; set printer name
 M669 K1                                                           ; select CoreXY kinematics
 
 ; ---------------------------------------------------------------------------
@@ -161,6 +161,11 @@ M593 P"mzv" F46.0                                                 ; input shapin
 ; ---------------------------------------------------------------------------
 ; Mellow filament buffer
 ; ---------------------------------------------------------------------------
+
+; Feed status input
+M950 J2 C"!io6.in"                                                ; detect buffer retract status
+M581 T5 R0 P3 S0                                                  ; configure external trigger 6 for retract button
+M582 T5 S0                                                        ; check external trigger 6
 
 ; Retract status input
 M950 J3 C"io7.in"                                                 ; detect buffer retract status

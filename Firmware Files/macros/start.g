@@ -1,20 +1,21 @@
 ; start.g
 ; print start sequence
 
-;~~~~~ heat chamber, bed and hotend ~~~~~
-
-M141 P0 S0 R{chamber_temperature[0]}        ; store final chamber target for chamber ramp
-M140 S{first_layer_bed_temperature[0]}      ; set bed temperature
-M104 S{first_layer_temperature[0]}          ; set hotend temperature
-
 ;~~~~~ move bed to chamber preheat position ~~~~~
 
 G90
 G1 Z100 F3000
 M400
 
-M98 P"/macros/wait_chamber_min.g" S{chamber_minimal_temperature[0]}   ; wait for minimum chamber temperature
+;~~~~~ heat chamber, bed and hotend ~~~~~
+
+M141 P0 S0 R{chamber_temperature[0]}        ; store final chamber target for chamber ramp
+M140 S{first_layer_bed_temperature[0]}      ; set bed temperature
 M190 S{first_layer_bed_temperature[0]}      ; wait for bed temperature
+M98 P"/macros/wait_chamber_min.g" S{chamber_minimal_temperature[0]}   ; wait for minimum chamber temperature
+
+;~~~~~ hotend when minimal chamber temp has been reached ~~~~~
+M104 S{first_layer_temperature[0]}          ; set hotend temperature
 M109 S{first_layer_temperature[0]}          ; wait for hotend temperature
 
 ;~~~~~ clear previous Z adjustment ~~~~~
@@ -23,7 +24,7 @@ M290 R0 S0                                  ; clear babystepping
 
 ;~~~~~ home and calibrate Z ~~~~~
 
-M98 P"/sys/homez.g"                         ; home Z and run G32 bed leveling
+M98 P"/sys/homez.g"                         ; home Z and run G32 3 point bed leveling
 M400
 
 M98 P"/macros/z_offset.g"                   ; calibrate nozzle Z offset
