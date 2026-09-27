@@ -32,6 +32,14 @@ Recommended operating values are separated from verified prototype results. Veri
 - Documentation now distinguishes recommended operating values from verified prototype performance.
 - Corrected RepRapFirmware chamber numbering: the heated chamber is Chamber 0 and the drybox is Chamber 1.
 
+### Licensing
+
+- V2.0.0-rc.1 marks the transition of Project Valkyrie to an open-source/open-hardware licensing structure.
+- Hardware design files are licensed under CERN-OHL-S-2.0.
+- Original Valkyrie firmware, macros, and configuration are licensed under GPL-3.0-or-later.
+- Original documentation and project media are licensed under CC-BY-4.0.
+- Earlier tagged releases remain under the licence terms under which they were originally published.
+
 ## Release highlights
 
 ### Frame and enclosure
@@ -193,6 +201,10 @@ Acknowledgements: RepRapFirmware, Duet Web Control, and Duet3D.
 
 ## Licensing
 
-Valkyrie V2 copyright 2026 Roy Berntsen and contributors.
+Beginning with V2.0.0-rc.1:
 
-Unless otherwise stated, the documentation and original project media are licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Hardware design files and software/firmware are subject to the licence notices distributed with those files. Third-party materials remain subject to their respective licences.
+- hardware design files are licensed under **CERN-OHL-S-2.0**
+- original Valkyrie firmware, macros, and configuration are licensed under **GPL-3.0-or-later**
+- original documentation and project media are licensed under **CC-BY-4.0**
+
+Earlier tagged releases remain under their original licence terms. See [License.md](License.md) for the complete project licensing structure.
