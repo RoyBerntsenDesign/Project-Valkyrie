@@ -11,7 +11,7 @@ The standard electrical configuration is 220-240 VAC. A 110-120 VAC configuratio
 
 ## Project status
 
-This repository represents the initial public V2 release. Recommended operating values are separated from verified prototype results throughout the documentation. Materials and operating conditions that have not yet been validated are identified accordingly.
+This repository contains the current Valkyrie V2 development release and is being prepared for V2.0.0-rc.1. Recommended operating values are separated from verified prototype results throughout the documentation. Materials and operating conditions that have not yet been validated are identified accordingly.
 
 ## Fusion 360 CAD Model
 
