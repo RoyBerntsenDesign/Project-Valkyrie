@@ -23,7 +23,11 @@ if !exists(global.filamentWeight)
 
 if !exists(global.chamberFanFaultCounter)
     global chamberFanFaultCounter = 0
+	
+;~~~~~ drybox fan safety global ~~~~~
 
+if !exists(global.dryboxFanFaultCounter)
+    global dryboxFanFaultCounter = 0
 
 ;~~~~~ chamber ramp globals ~~~~~
 
@@ -34,5 +38,20 @@ if !exists(global.chamberFanFaultCounter)
     ; global chamberSavedBedTarget = 0
 
 ;~~~~~ pause/resume globals ~~~~~
+
 if !exists(global.pauseFan0Speed)
     global pauseFan0Speed = 0
+
+;~~~~~ water pump safety globals ~~~~~
+
+if !exists(global.waterPumpFaultCounter)
+    global waterPumpFaultCounter = 0
+
+if !exists(global.waterPumpFault)
+    global waterPumpFault = false
+
+if !exists(global.waterPumpSavedActiveTemp)
+    global waterPumpSavedActiveTemp = 0.0
+
+if !exists(global.waterPumpSavedStandbyTemp)
+    global waterPumpSavedStandbyTemp = 0.0
