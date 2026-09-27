@@ -1,10 +1,36 @@
-# Valkyrie V2 - Initial Public Release
+# Valkyrie V2.0.0-rc.1 - Release Candidate 1
 
-Release date: August 2026
+Release date: September 2026
 
-Valkyrie V2 is a major redesign of the original Valkyrie high-temperature CoreXY platform. The V2 architecture revises the frame, enclosure, motion system, build platform, toolhead, chamber heating, material management, electronics layout, and firmware automation.
+Valkyrie V2.0.0-rc.1 is the first release candidate for the V2 platform. It builds on the V2.0.0 beta releases with additional firmware safety monitoring, improved fault recovery, revised print-start heating behaviour, documentation cleanup, and release-structure improvements.
 
-This release separates verified prototype performance from development targets. Target values should not be interpreted as guaranteed operating specifications.
+Recommended operating values are separated from verified prototype results. Verified values represent demonstrated results on the Valkyrie V2 reference machine and should not be interpreted as required operating settings for every build.
+
+## Changes since V2.0.0-beta.2
+
+### Firmware safety and fault recovery
+
+- Added tachometer monitoring for the main chamber circulation fan, drybox fan, and water-cooling pump.
+- The chamber heater is automatically shut down if chamber-fan RPM remains below the configured safety threshold for two consecutive daemon cycles.
+- The drybox heater is automatically shut down if drybox-fan RPM remains below the configured safety threshold for two consecutive daemon cycles.
+- Water-pump monitoring becomes active once the hotend exceeds 60 °C.
+- A confirmed water-pump fault during a print automatically pauses the print and shuts down the hotend heater.
+- Pump-fault resume handling verifies pump RPM before reheating, restores the saved hotend temperature, waits for the hotend to recover, performs a final pump check, and only then resumes the print.
+- Stop and cancel handling clears stored water-pump fault and recovery state.
+- Chamber and drybox fan monitoring retain independent firmware fault handling in addition to the machine's physical thermal protection.
+
+### Print-start and thermal behaviour
+
+- Added a minimum-chamber-temperature wait routine for print start.
+- Bed and chamber heating can now begin before the hotend is heated, reducing unnecessary hotend dwell time during long chamber preheats.
+- Hotend firmware temperature limit aligned with the 500 °C rated Valkyrie hotend configuration.
+
+### Repository and documentation
+
+- Firmware files are organised directly under `Firmware Files/sys`, `Firmware Files/macros`, and `Firmware Files/filaments`.
+- Removed obsolete SD-card-folder references and backup/archive files from the public firmware structure.
+- Documentation now distinguishes recommended operating values from verified prototype performance.
+- Corrected RepRapFirmware chamber numbering: the heated chamber is Chamber 0 and the drybox is Chamber 1.
 
 ## Release highlights
 
@@ -67,7 +93,7 @@ This release separates verified prototype performance from development targets. 
 ### Material management
 
 - Integrated drybox with a 300 W PTC heater.
-- Drybox heater controlled by RepRapFirmware as Chamber 2.
+- Drybox heater controlled by RepRapFirmware as Chamber 1.
 - Drybox operation up to 80 °C.
 - Integrated desiccant container.
 - ESP32 monitoring of a DHT22 temperature/humidity sensor and filament load cell.
@@ -100,26 +126,30 @@ This release separates verified prototype performance from development targets. 
 - Material-specific filament loading and unloading through Duet Web Control and the external filament buffer.
 - Tested print-start, pause/resume, cancel, and normal print-finish workflows.
 - Chamber temperature ramping for controlled heat-up.
-- Chamber recirculation-fan monitoring with automatic chamber-heater shutdown on fan fault.
+- Delayed hotend heating until the configured minimum chamber temperature is reached.
+- Chamber recirculation-fan tach monitoring with automatic chamber-heater shutdown on fan fault.
+- Drybox-fan tach monitoring with automatic drybox-heater shutdown on fan fault.
+- Water-pump tach monitoring with automatic print pause and hotend-heater shutdown on cooling fault.
+- Pump-fault recovery sequence that verifies cooling before reheating and resuming.
 - Firmware temperature limits, heating timeouts, sensor-fault handling, and automatic heater shutdown.
 
-The released firmware configuration is based on the tested reference machine. Machine-specific values such as input shaping, probe offsets, filament profiles, and other tuning parameters may require adjustment on individual builds.
+The RC.1 firmware configuration is based on the tested reference machine. Machine-specific values such as input shaping, probe offsets, filament profiles, and other tuning parameters may require adjustment on individual builds.
 
-## Verified prototype performance
+## Recommended and verified performance
 
-| Performance | Verified |
-| --- | ---: |
-| Maximum print speed | 1,000 mm/s |
-| Maximum acceleration | 10,000 mm/s² |
-| Maximum volumetric flow rate | 45 mm³/s |
-| Maximum travel speed | 1,000 mm/s |
-| Chamber heat-up | 25 min to 100 °C from 23 °C ambient |
-| Sustained chamber temperature | 110 °C for 60 min |
-| Drybox temperature | Up to 80 °C |
+| Performance | Recommended | Verified |
+| --- | ---: | ---: |
+| Print speed | Up to 500 mm/s | 1,000 mm/s |
+| Acceleration | Up to 10,000 mm/s² | 10,000 mm/s² |
+| Volumetric flow rate | Material-dependent | 45 mm³/s |
+| Chamber temperature | Material-dependent, up to 110 °C | 110 °C sustained for 60 min |
+| Drybox temperature | Material-dependent, up to 80 °C | 80 °C |
+| Maximum travel speed | — | 1,000 mm/s |
+| Chamber heat-up | — | 25 min to 100 °C from 23 °C ambient |
 
-## Development targets
+Recommended values are intended as practical operating limits for the Valkyrie V2 reference configuration. Actual print settings depend on material, nozzle size, layer height, toolhead configuration, cooling, firmware tuning, and operating temperature.
 
-No higher chamber-temperature target is currently defined. The present verified chamber specification is up to 110 °C.
+Verified values represent results demonstrated on the Valkyrie V2 reference machine.
 
 ## Electrical configurations
 
@@ -144,7 +174,7 @@ PSU, PPSU, PEI (Ultem), and PEKK remain to be verified.
 ## Documentation
 
 - [Valkyrie V2 Technical Overview v1.0](docs/Valkyrie_V2_Technical_Overview_v1.0.pdf)
-- [Valkyrie V2 SD Card Files](Firmware%20Files/SD%20Card%20Files)
+- [Valkyrie V2 Firmware Files](Firmware%20Files)
 - [Valkyrie Firmware Upgrade Guide](https://docs.google.com/document/d/1ZG3JhbeEWcIs_WRdMjnoR0Aa20OJ4TtpdeJnv2xmSmU/edit?usp=sharing)
 
 The technical overview is not an assembly manual or electrical wiring guide.

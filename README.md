@@ -11,7 +11,7 @@ The standard electrical configuration is 220-240 VAC. A 110-120 VAC configuratio
 
 ## Project status
 
-This repository represents the initial public V2 release. Verified prototype results are separated from design targets throughout the documentation. Materials and operating conditions that have not yet been validated are identified accordingly.
+This repository represents the initial public V2 release. Recommended operating values are separated from verified prototype results throughout the documentation. Materials and operating conditions that have not yet been validated are identified accordingly.
 
 ## Fusion 360 CAD Model
 
@@ -38,26 +38,28 @@ The online model includes the latest public design and allows you to inspect the
 | Maximum nozzle temperature | Up to 500 °C |
 | Maximum build-plate temperature | Up to 150 °C |
 | Active chamber | Up to 110 °C verified |
-| Chamber heater | 750 W PTC heater, configured as RRF Chamber 1 |
-| Drybox heater | 300 W PTC heater, configured as RRF Chamber 2 |
+| Chamber heater | 750 W PTC heater, configured as RRF Chamber 0 |
+| Drybox heater | 300 W PTC heater, configured as RRF Chamber 1 |
 | Controller | Duet 3 6HC |
 | Firmware | RepRapFirmware with Duet Web Control |
 | Standard input | 220-240 VAC |
 | Optional input | 110-120 VAC with configuration-specific components |
 
-## Verified performance and targets
+## Recommended and verified performance
 
-| Performance | Verified | Target |
+| Performance | Recommended | Verified |
 | --- | ---: | ---: |
-| Maximum print speed | 1,000 mm/s | — |
-| Maximum acceleration | 10,000 mm/s² | — |
-| Maximum volumetric flow rate | 45 mm³/s | — |
-| Maximum travel speed | 1,000 mm/s | — |
-| Chamber heat-up | 25 min to 100 °C from 23 °C ambient | 30 min or less to 100 °C |
-| Sustained chamber temperature | 110 °C for 60 min | — |
-| Drybox temperature | Up to 80 °C | Up to 80 °C |
+| Print speed | Up to 500 mm/s | 1,000 mm/s |
+| Acceleration | Up to 10,000 mm/s² | 10,000 mm/s² |
+| Volumetric flow rate | Material-dependent | 45 mm³/s |
+| Chamber temperature | Material-dependent, up to 110 °C | 110 °C sustained for 60 min |
+| Drybox temperature | Material-dependent, up to 80 °C | 80 °C |
+| Maximum travel speed | — | 1,000 mm/s |
+| Chamber heat-up | — | 25 min to 100 °C from 23 °C ambient |
 
-Performance depends on material, nozzle, toolhead configuration, cooling, firmware settings, and operating temperature. A dash indicates that no higher development target is currently defined for that parameter.
+Recommended values are intended as practical operating limits for the Valkyrie V2 reference configuration. Actual print settings depend on material, nozzle size, layer height, toolhead configuration, cooling, firmware tuning, and operating temperature.
+
+Verified values represent results demonstrated on the Valkyrie V2 reference machine and should not be interpreted as required operating settings for every build.
 
 ## Design overview
 
@@ -98,7 +100,7 @@ Performance depends on material, nozzle, toolhead configuration, cooling, firmwa
 ### Material management
 
 - Integrated heated filament drybox operating up to 80 °C.
-- RepRapFirmware controls the drybox heater as Chamber 2.
+- RepRapFirmware controls the drybox heater as Chamber 1.
 - ESP32 monitoring of the DHT22 temperature/humidity sensor and filament load cell.
 - Desiccant container and 625ZZ-bearing filament carousel.
 - External filament buffer supporting automatic filament loading and unloading.
@@ -118,7 +120,7 @@ Valkyrie V2 uses RepRapFirmware and Duet Web Control on the Duet 3 6HC.
 
 The tested Valkyrie V2 firmware configuration is included in this repository:
 
-[Open Valkyrie V2 SD Card Files](Firmware%20Files/SD%20Card%20Files)
+[Open Valkyrie V2 Firmware Files](Firmware%20Files)
 
 The supplied firmware package contains:
 
