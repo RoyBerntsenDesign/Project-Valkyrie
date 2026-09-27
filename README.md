@@ -162,7 +162,7 @@ Still to be verified:
 ## Documentation
 
 - [Valkyrie V2 Technical Overview v1.0](docs/Valkyrie_V2_Technical_Overview_v1.0.pdf)
-- [Valkyrie V2 initial release notes](RELEASE_NOTES.md)
+- [Valkyrie V2.0.0-rc.1 release notes](RELEASE_NOTES.md)
 
 The technical overview describes the machine architecture and prototype configuration. It is not an assembly manual or electrical wiring guide.
 
