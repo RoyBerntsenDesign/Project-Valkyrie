@@ -194,6 +194,7 @@ Do not use the project documentation as a substitute for electrical design verif
 - RepRapFirmware
 - Duet Web Control
 - Duet3D
+- BIQU
 
 ## Licensing
 
