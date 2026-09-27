@@ -28,7 +28,7 @@ Recommended operating values are separated from verified prototype results. Veri
 ### Repository and documentation
 
 - Firmware files are organised directly under `Firmware Files/sys`, `Firmware Files/macros`, and `Firmware Files/filaments`.
-- Removed obsolete SD-card-folder references and backup/archive files from the public firmware structure.
+- Removed obsolete SD-card-folder references and stale backup/archive files from the public `sys` and `macros` structure.
 - Documentation now distinguishes recommended operating values from verified prototype performance.
 - Corrected RepRapFirmware chamber numbering: the heated chamber is Chamber 0 and the drybox is Chamber 1.
 
