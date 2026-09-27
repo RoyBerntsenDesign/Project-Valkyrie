@@ -1,4 +1,4 @@
-# Valkyrie V2 – RepRapFirmware SD Card Files
+# Valkyrie V2 – RepRapFirmware Files
 
 These files contain the Valkyrie V2 RepRapFirmware configuration used on the reference machine.
 
