@@ -94,7 +94,7 @@ M307 H0 R1.177 K0.810:0.000 D4.88 E1.35 S1 B0                     ; bed heater t
 ; Hotend
 M308 S1 P"temp0" Y"pt1000" A"Hotend T°C"                          ; hotend PT1000 sensor
 M950 H1 C"out1" T1                                                ; hotend heater output mapped to sensor 1
-M143 H1 S450                                                      ; hotend temperature limit: 450C
+M143 H1 S500                                                      ; hotend temperature limit: 450C
 M307 H1 R2.651 K0.222:0.000 D5.73 E1.35 S1.00 B0 V23.2            ; hotend heater tuning parameters
 
 ; Heated chamber
@@ -103,7 +103,7 @@ M950 H2 C"out8" T2                                                ; chamber heat
 M307 H2 R0.20 K0.25:0.000 D15 E1.35 S1.00 B1                      ; chamber heater tuning parameters 
 M570 H2 P60 T15 R5                                                ; chamber heater fault detection parameters
 M141 H2 P0                                                        ; map chamber 0 to heater 2
-M143 H2 S125                                                      ; chamber heater temperature limit: 125C
+M143 H2 S120                                                      ; chamber heater temperature limit: 125C
 
 ; Heated drybox / chamber 1
 M308 S3 P"io2.out" Y"dht22" A"dbx Temp[C]"                        ; drybox DHT22 temperature sensor
