@@ -28,9 +28,26 @@ Recommended operating values are separated from verified prototype results. Veri
 ### Repository and documentation
 
 - Firmware files are organised directly under `Firmware Files/sys`, `Firmware Files/macros`, and `Firmware Files/filaments`.
-- Removed obsolete SD-card-folder references and backup/archive files from the public firmware structure.
+- Removed obsolete SD-card-folder references and stale backup/archive files from the public `sys` and `macros` structure.
 - Documentation now distinguishes recommended operating values from verified prototype performance.
 - Corrected RepRapFirmware chamber numbering: the heated chamber is Chamber 0 and the drybox is Chamber 1.
+
+### Hardware files and drawings
+
+- Updated the Valkyrie V2 build guide/BOM.
+- Updated the Z idler tower A/B printable parts.
+- Updated the Z-probe docking part.
+- Updated the Duet cover printable part.
+- Updated the LED Front Buddy printable part and added the corresponding LED Buddy drawing.
+- Removed duplicate Tool Sensor and Tool Sensor Probe STL files.
+
+### Licensing
+
+- V2.0.0-rc.1 marks the transition of Project Valkyrie to an open-source/open-hardware licensing structure.
+- Hardware design files are licensed under CERN-OHL-S-2.0.
+- Original Valkyrie firmware, macros, and configuration are licensed under GPL-3.0-or-later.
+- Original documentation and project media are licensed under CC-BY-4.0.
+- Earlier tagged releases remain under the licence terms under which they were originally published.
 
 ## Release highlights
 
@@ -144,8 +161,8 @@ The RC.1 firmware configuration is based on the tested reference machine. Machin
 | Volumetric flow rate | Material-dependent | 45 mm³/s |
 | Chamber temperature | Material-dependent, up to 110 °C | 110 °C sustained for 60 min |
 | Drybox temperature | Material-dependent, up to 80 °C | 80 °C |
-| Maximum travel speed | — | 1,000 mm/s |
-| Chamber heat-up | — | 25 min to 100 °C from 23 °C ambient |
+| Maximum travel speed | Up to 500 mm/s | 1,000 mm/s |
+| Chamber heat-up | — | 25 min to 100 °C from 25 °C ambient |
 
 Recommended values are intended as practical operating limits for the Valkyrie V2 reference configuration. Actual print settings depend on material, nozzle size, layer height, toolhead configuration, cooling, firmware tuning, and operating temperature.
 
@@ -189,10 +206,14 @@ Valkyrie V2 uses mains-voltage heaters, high current, high temperatures, moving 
 - **Mark Bridgewater** - Design, electronics, firmware, testing, and documentation.
 - **Chris Lombardi** - ESP32 firmware.
 
-Acknowledgements: RepRapFirmware, Duet Web Control, and Duet3D.
+Acknowledgements: RepRapFirmware, Duet Web Control, Duet3D, and BIQU.
 
 ## Licensing
 
-Valkyrie V2 copyright 2026 Roy Berntsen and contributors.
+Beginning with V2.0.0-rc.1:
 
-Unless otherwise stated, the documentation and original project media are licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Hardware design files and software/firmware are subject to the licence notices distributed with those files. Third-party materials remain subject to their respective licences.
+- hardware design files are licensed under **CERN-OHL-S-2.0**
+- original Valkyrie firmware, macros, and configuration are licensed under **GPL-3.0-or-later**
+- original documentation and project media are licensed under **CC-BY-4.0**
+
+Earlier tagged releases remain under their original licence terms. See [License.md](License.md) for the complete project licensing structure.

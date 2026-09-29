@@ -1,7 +1,7 @@
 # Valkyrie V2
 [![Join our Discord](https://img.shields.io/badge/Discord-Join_the_community-5865F2?logo=discord&logoColor=white)](https://discord.gg/mWARcpt7NQ)
 
-Source-available, non-commercial DIY high-temperature CoreXY FFF platform.
+Open-source, open-hardware DIY high-temperature CoreXY FFF platform.
 
 ![Valkyrie V2 front render](docs/images/valkyrie-v2-front-render.png)
 
@@ -162,7 +162,7 @@ Still to be verified:
 ## Documentation
 
 - [Valkyrie V2 Technical Overview v1.0](docs/Valkyrie_V2_Technical_Overview_v1.0.pdf)
-- [Valkyrie V2 initial release notes](RELEASE_NOTES.md)
+- [Valkyrie V2.0.0-rc.1 release notes](RELEASE_NOTES.md)
 
 The technical overview describes the machine architecture and prototype configuration. It is not an assembly manual or electrical wiring guide.
 
@@ -198,6 +198,12 @@ Do not use the project documentation as a substitute for electrical design verif
 
 ## Licensing
 
-Valkyrie V2 copyright 2026 Roy Berntsen and contributors.
+Beginning with V2.0.0-rc.1, Valkyrie V2 is released as an open-source and open-hardware project.
 
-Unless otherwise stated, the documentation and original project media are licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Hardware design files and software/firmware are subject to the licence notices distributed with those files. Third-party materials remain subject to their respective licences.
+- Hardware design files: **CERN-OHL-S-2.0**
+- Valkyrie firmware, macros, and configuration: **GPL-3.0-or-later**
+- Documentation and original project media: **CC-BY-4.0**
+
+Earlier tagged releases remain under the licence terms under which they were originally published. Third-party materials remain subject to their respective licences.
+
+See [License.md](License.md) and the full licence texts in [LICENSES](LICENSES).
