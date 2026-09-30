@@ -126,7 +126,7 @@ Recommended operating values are separated from verified prototype results. Veri
 - Three 24 V-controlled solid-state relays for the bed, chamber, and drybox heaters.
 - GX20 toolhead interfaces positioned outside the heated chamber.
 - High-temperature HDC chamber interfaces.
-- Four internal 350 mm, 24 V LED strips.
+- Three internal 350 mm, 24 V LED strips.
 - Primary electronics located outside the heated chamber where practical.
 
 ### Firmware and automation
@@ -190,7 +190,7 @@ PSU, PPSU, PEI (Ultem), and PEKK remain to be verified.
 
 ## Documentation
 
-- [Valkyrie V2 Technical Overview v1.0](docs/Valkyrie_V2_Technical_Overview_v1.0.pdf)
+- [Valkyrie V2 Technical Overview v1.1](docs/Valkyrie_V2_Technical_Overview_v1.1.pdf)
 - [Valkyrie V2 Firmware Files](Firmware%20Files)
 - [Valkyrie Firmware Upgrade Guide](https://docs.google.com/document/d/1ZG3JhbeEWcIs_WRdMjnoR0Aa20OJ4TtpdeJnv2xmSmU/edit?usp=sharing)
 
