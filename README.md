@@ -40,6 +40,7 @@ The online model includes the latest public design and allows you to inspect the
 | Active chamber | Up to 110 °C verified |
 | Chamber heater | 750 W PTC heater, configured as RRF Chamber 0 |
 | Drybox heater | 300 W PTC heater, configured as RRF Chamber 1 |
+| Chamber lighting | 3 × 350 mm, 24 V LED strips |
 | Controller | Duet 3 6HC |
 | Firmware | RepRapFirmware with Duet Web Control |
 | Standard input | 220-240 VAC |
@@ -111,6 +112,7 @@ Verified values represent results demonstrated on the Valkyrie V2 reference mach
 - Primary 24 V, 350 W power supply and secondary 12 V power supply.
 - TS35 DIN-rail mains and 12 V distribution.
 - Three solid-state relays for the bed, chamber, and drybox heaters.
+- Three 350 mm, 24 V chamber LED strips: two vertical front strips pointing toward the rear and one top-front strip pointing toward the toolhead/build area.
 - RepRapFirmware and Duet Web Control.
 - Input shaping, pressure advance, automatic Z alignment, mesh compensation, thermal monitoring, and configurable print-start and print-end sequences.
 
