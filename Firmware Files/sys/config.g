@@ -131,7 +131,7 @@ M106 P0 S0 H-1 C"CPAP Fan" B1 L0.1 X0.6                           ; CPAP fan, no
 M950 F1 C"!out6+out6.tach" Q25000                                 ; fan 1 with tachometer
 M106 P1 S0 H-1 C"Chamber Fan"                                     ; chamber fan, non-thermostatic
 
-; Drybox fan - 24V
+; Drybox fan - 12V
 M950 F2 C"!out5+out5.tach" Q25000                                 ; fan 2 with tachometer
 M106 P2 S0 H-1 C"Drybox Fan"                                      ; drybox fan, non-thermostatic
 
