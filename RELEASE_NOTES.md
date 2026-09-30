@@ -162,7 +162,7 @@ The RC.1 firmware configuration is based on the tested reference machine. Machin
 | Chamber temperature | Material-dependent, up to 110 °C | 110 °C sustained for 60 min |
 | Drybox temperature | Material-dependent, up to 80 °C | 80 °C |
 | Maximum travel speed | Up to 500 mm/s | 1,000 mm/s |
-| Chamber heat-up | — | 25 min to 100 °C from 25 °C ambient |
+| Chamber heat-up | — | 30 min to 100 °C from 25 °C ambient |
 
 Recommended values are intended as practical operating limits for the Valkyrie V2 reference configuration. Actual print settings depend on material, nozzle size, layer height, toolhead configuration, cooling, firmware tuning, and operating temperature.
 
