@@ -10,8 +10,8 @@
 ; Maximum 3 attempts.
 
 var safe_z = 10
-var press_offset = 0.5
-var retract_offset = 1.0
+var press_offset = 1.5
+var retract_offset = 1.5
 var max_attempts = 3
 
 var probe_x = move.axes[0].max / 2
