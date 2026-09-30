@@ -36,7 +36,7 @@ var heater_number = 2
 var fan_number = 1
 var temperature_increase = 5
 var tolerance = 3
-var preheat_z = 100
+var preheat_z = 50
 
 
 if var.Chamber_Ramping
