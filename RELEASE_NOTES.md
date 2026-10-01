@@ -1,6 +1,6 @@
 # Valkyrie V2.0.0-rc.1 - Release Candidate 1
 
-Release date: September 2026
+Release date: October 2026
 
 Valkyrie V2.0.0-rc.1 is the first release candidate for the V2 platform. It builds on the V2.0.0 beta releases with additional firmware safety monitoring, improved fault recovery, revised print-start heating behaviour, documentation cleanup, and release-structure improvements.
 
