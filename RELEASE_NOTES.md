@@ -159,8 +159,8 @@ The RC.1 firmware configuration is based on the tested reference machine. Machin
 | Print speed | Up to 500 mm/s | 1,000 mm/s |
 | Acceleration | Up to 10,000 mm/s² | 10,000 mm/s² |
 | Volumetric flow rate | Material-dependent | 45 mm³/s |
-| Chamber temperature | Material-dependent, up to 110 °C | 110 °C sustained for 60 min |
-| Drybox temperature | Material-dependent, up to 80 °C | 80 °C |
+| Chamber temperature | Up to 110 °C | 110 °C sustained for 60 min |
+| Drybox temperature | Up to 80 °C | 80 °C |
 | Maximum travel speed | Up to 500 mm/s | 1,000 mm/s |
 | Chamber heat-up | — | 30 min to 100 °C from 25 °C ambient |
 
